@@ -1,1 +1,12 @@
-sd
+{% for post in posts %}
+    <h2>{{product.name}}</h2>
+    <h2>{{product.detail}}</h2>
+
+    <img src="{{ childproduct.image.url }}" class="img" alt="Responsive image">
+    <h3>{{childproduct.title}}</h3>
+    <h3>{{childproduct.price}}</h3>
+    <h3>{{childproduct.url}}</h3>
+    <br>
+{% endfor %}
+
+

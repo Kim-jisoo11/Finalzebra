@@ -1,0 +1,27 @@
+{% load static %}
+
+{% for categories in categories %}
+    {% if category == categories %}
+    <li class="category_list"><a href="{% url 'product' categories.id %}">
+            {{categories}}</a>
+    </li>
+    {% else %}
+    <li class="category_list"><a href="{% url 'product' categories.id %}">{{categories}}</a></li>
+    {% endif %}
+{% endfor %}
+
+
+
+
+{% for post in posts %}
+    
+    <h2>{{post.name}}</h2>
+    <h2>{{post.detail}}</h2>
+
+    <img src="{{ post.image.url }}" class="img" width ="300px" height ="300px" alt="Responsive image">
+    <!-- <h3>{{post.ship}}</h3>
+    <h3>{{post.price}}</h3>
+    <h3>{{post.shopLink}}</h3> -->
+    <br>
+{% endfor %}
+
