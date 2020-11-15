@@ -1,0 +1,13 @@
+{% load static %}
+
+
+{% for childproduct in product.childproduct_set.all %}
+
+    {{childproduct.name}}
+    {{childproduct.shopLink}}
+    {{childproduct.shopName}}
+    {{childproduct.ship}}
+    
+    <img src="{{ childproduct.image.url }}" class="img" width ="300px" height ="300px" alt="Responsive image">
+
+{% endfor %}
