@@ -56,7 +56,7 @@ def detail_myItem_in_myPage(request, my_Items_id):
     myItems_detail = get_object_or_404(MyItem, pk=my_Items_id)
     return render(request, 'detail_Item_myPage.html', {'myItems_detail':myItems_detail})
 
-def update_myItem_in_myPage(request):
+def update_myItem_in_myPage(request, my_Items_id):
     myItems_update = get_object_or_404(MyItem, pk=my_Items_id)
     
     if request.method == "POST":
@@ -67,7 +67,7 @@ def update_myItem_in_myPage(request):
         myItems_update.itemShop = myItemShop
         myItems_update.itemDate = myItemDate
         myItems_update.save()
-        return redirect('detail', my_Items.id)
+        return redirect('detail_myItem', my_Items_id)
     return render(request, 'update_Item_myPage.html', {'myItems_update':myItems_update})
 
 def delete_myItem_in_myPage(request, my_Items_id):
