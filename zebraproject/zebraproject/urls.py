@@ -24,6 +24,6 @@ urlpatterns = [
     path('',views.main, name ="main"),
     path('product/<int:category_id>/', views.show_product, name='product'),
     path('childproduct/<int:product_id>/', views.show_childproduct, name = 'childproduct' ),
-
+    path('mypage/', views.show_myPage, name = 'mypage' ),
 
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Category, Product, ChildProduct
+from .models import Category, Product, ChildProduct, MyItem
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -31,3 +31,8 @@ def show_childproduct(request, product_id):
 
     return render(request,'childproduct.html' , {'product':product, 'childproduct':childproduct})
 
+def show_myPage(request):
+    myItems_myLevel = MyItem.objects.all()
+    #return render(request, 'myPage.html', {'myItems:myItems_myLevel'})
+    return render(request,'myPage.html')
+    
