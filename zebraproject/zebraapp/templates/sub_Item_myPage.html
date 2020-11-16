@@ -1,0 +1,15 @@
+<h1>내가 산 제품 등록하기</h1>
+
+<form action="{% url 'create_myItem' %}">
+    <label for="input_itemName">제품명</label>
+    <input type="text" name="itemName" class="form-control" id="input_itemName">
+
+    <label for="input_itemShop">구매처</label>
+    <input type="text" name="itemShop" class="form-control" id="input_itemShop">
+
+    <label for="input_itemDate">구매일</label>
+    <input type="date" name="itemDate" class="form-control" id="input_itemDate" placeholder="YYYY.MM.DD">
+
+    <button type="submit" class="btn btn-primary">등록하기</button>
+
+</form>

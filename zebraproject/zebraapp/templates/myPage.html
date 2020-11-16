@@ -1,3 +1,11 @@
 <h1>My Page</h1>
 
 <h2>My Level</h2>
+
+{% for myItems in myItems_myLevel %}
+
+{{myItems.itemShop}}
+{{myItems.itemName}}
+{{myItems.itemDate}}
+
+{% endfor %}
