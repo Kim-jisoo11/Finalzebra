@@ -32,6 +32,17 @@ class ChildProduct(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
 
+class MyItem(models.Model):
+    itemName = models.CharField(max_length=200)
+    itemShop = models.CharField(max_length=200)
+    itemDate = models.DateTimeField('date published')
+    
+    class Meta:
+        ordering = ['-itemDate']
+
+    def __str__(self):
+        return self.itemDate.strftime("%Y.%m.%d") + "-" + self.itemName + "-" + self.itemShop
+
 
 
 
