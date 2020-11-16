@@ -33,6 +33,44 @@ def show_childproduct(request, product_id):
 
 def show_myPage(request):
     myItems_myLevel = MyItem.objects.all()
-    #return render(request, 'myPage.html', {'myItems:myItems_myLevel'})
-    return render(request,'myPage.html')
+    return render(request,'myPage.html', {'myItems_myLevel':myItems_myLevel})
+
+def submit_myItem_in_myPage(request):
+    return render(request, 'sub_Item_myPage.html')
+
+def create_myItem_in_myPage(request):
+    myItems = MyItem()
+    # if request.method == "POST":
+    #     myItems.myItemName = request.POST.get('itemName')
+    #     myItems.myItemShop = request.POST.get('itemShop')
+    #     myItems.myItemDate = request.POST.get('itemDate')
+    #     myItems.save()
     
+    myItems.itemName = request.GET['itemName']
+    myItems.itemShop = request.GET['itemShop']
+    myItems.itemDate = request.GET['itemDate']
+    myItems.save()
+    return redirect('mypage')
+
+def detail_myItem_in_myPage(request):
+    myItems_detail = get_object_or_404(MyItem, pk=my_Items_id)
+    return render(request, 'detail_myItem_myPage.html', {'myItems_detail':myItems_detail})
+
+def update_myItem_in_myPage(request):
+    myItems_update = get_object_or_404(MyItem, pk=my_Items_id)
+    
+    if request.method == "POST":
+        myItemName = request.POST.get('itemName')
+        myItemShop = request.POST.get('itemShop')
+        myItemDate = request.POST.get('itemDate')
+        myItems_update.itemName = myItemName
+        myItems_update.itemShop = myItemShop
+        myItems_update.itemDate = myItemDate
+        myItems_update.save()
+        return redirect('detail', my_Items.id)
+    return render(request, 'update_Item_myPage.html', {'myItems_update':myItems_update})
+
+def delete_myItem_in_myPage(request, my_Items_id):
+    myItems = get_object_or_404(MyItem, pk=my_Items_id)
+    myItems.delete()
+    return redirect('mypage')

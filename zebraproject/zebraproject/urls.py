@@ -24,6 +24,11 @@ urlpatterns = [
     path('',views.main, name ="main"),
     path('product/<int:category_id>/', views.show_product, name='product'),
     path('childproduct/<int:product_id>/', views.show_childproduct, name = 'childproduct' ),
-    path('mypage/', views.show_myPage, name = 'mypage' ),
-
+    path('mypage/', views.show_myPage, name = 'mypage'),
+    path('submit_myitem/', views.submit_myItem_in_myPage, name = 'submit_myItem'),
+    path('mypage/create_myItem', views.create_myItem_in_myPage, name = 'create_myItem'),
+    path('mypage/<int:my_Items_id>', views.detail_myItem_in_myPage, name = 'detail_myItem'),
+    path('mypage/<int:my_Items_id>/update_myItem', views.update_myItem_in_myPage, name = 'update_myItem'),
+    path('mypage/<int:my_Items_id>/delete_myItem', views.delete_myItem_in_myPage, name = 'delete_myItem'),
+    
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
