@@ -7,5 +7,6 @@
 {{myItems.itemShop}}
 {{myItems.itemName}}
 {{myItems.itemDate}}
+<a href="{% url 'detail_myItem' myItems.id %}" class="">더보기</a>
 
 {% endfor %}

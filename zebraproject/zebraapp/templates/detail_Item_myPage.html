@@ -1,0 +1,6 @@
+<h2>{{myItems_detail.itemName}}</h2>
+
+{{myItems_detail.itemShop}}
+{{myItems_detail.itemDate}}
+<a href="{% url 'update_myItem' myItems_detail.id %}">수정</a>
+<a href="{% url 'delete_myItem' myItems_detail.id %}">삭제</a>

@@ -52,9 +52,9 @@ def create_myItem_in_myPage(request):
     myItems.save()
     return redirect('mypage')
 
-def detail_myItem_in_myPage(request):
+def detail_myItem_in_myPage(request, my_Items_id):
     myItems_detail = get_object_or_404(MyItem, pk=my_Items_id)
-    return render(request, 'detail_myItem_myPage.html', {'myItems_detail':myItems_detail})
+    return render(request, 'detail_Item_myPage.html', {'myItems_detail':myItems_detail})
 
 def update_myItem_in_myPage(request):
     myItems_update = get_object_or_404(MyItem, pk=my_Items_id)
