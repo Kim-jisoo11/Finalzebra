@@ -43,6 +43,18 @@ class MyItem(models.Model):
     def __str__(self):
         return self.itemDate.strftime("%Y.%m.%d") + "-" + self.itemName + "-" + self.itemShop
 
+class Tip(models.Model):
+    title = models.CharField(max_length=200)
+    pub_date = models.DateField('date published')
+    cover = models.ImageField(upload_to="images")
+
+    def __str__(self):
+        return self.title
+
+class TipBody(models.Model):
+    tip = models.ForeignKey(Tip, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/')
+    body = models.TextField()
 
 
 
