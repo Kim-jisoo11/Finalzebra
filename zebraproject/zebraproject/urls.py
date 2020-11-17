@@ -34,5 +34,7 @@ urlpatterns = [
     path('mypage/<int:my_Items_id>', views.detail_myItem_in_myPage, name = 'detail_myItem'),
     path('mypage/<int:my_Items_id>/update_myItem', views.update_myItem_in_myPage, name = 'update_myItem'),
     path('mypage/<int:my_Items_id>/delete_myItem', views.delete_myItem_in_myPage, name = 'delete_myItem'),
+    path('tip/',views.tip, name ="tip"),
+    path('tip/<int:tip_id>',views.tip_detail, name ="tip_detail"),
     
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

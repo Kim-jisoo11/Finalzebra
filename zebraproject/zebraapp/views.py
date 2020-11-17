@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Category, Product, ChildProduct, MyItem
+from .models import Category, Product, ChildProduct, MyItem, Tip, TipBody
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -53,7 +53,7 @@ def create_myItem_in_myPage(request):
     return redirect('mypage')
 
 def detail_myItem_in_myPage(request, my_Items_id):
-    myItems_detail = get_object_or_404(MyItem, pk=my_Items_id)
+    myItems = get_object_or_404(MyItem, pk=my_Items_id)
     return render(request, 'detail_Item_myPage.html', {'myItems_detail':myItems_detail})
 
 def update_myItem_in_myPage(request, my_Items_id):
@@ -74,3 +74,11 @@ def delete_myItem_in_myPage(request, my_Items_id):
     myItems = get_object_or_404(MyItem, pk=my_Items_id)
     myItems.delete()
     return redirect('mypage')
+
+def tip(request):
+    tips = Tip.objects.all()
+    return render(request, 'tip.html',{'tips':tips})
+
+def tip_detail(request, tip_id):
+    tip = get_object_or_404(Tip, pk=tip_id)
+    return render(request, 'tip_detail.html', {'tip':tip})

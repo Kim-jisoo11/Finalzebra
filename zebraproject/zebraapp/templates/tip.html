@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <title>Tip</title>
+    
+</head>
+
+<body>
+
+<!-- Navigation Bar  -->
+
+<!-- Page Content -->
+
+    {% for tip in tips%}
+    
+        <a href="{% url 'tip_detail' tip.id %}">
+            <img src="{{ tip.cover.url }}" width ="300px" height ="300px" alt="tipimage">
+        </a>
+        <h3>{{tip.title}}</h3>
+        <h3>{{tip.pub_date|date:"Y M D"}}</h3>
+    
+    {% endfor %}
+
+</body>
+
