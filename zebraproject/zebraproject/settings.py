@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'zebraapp.apps.ZebraappConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [

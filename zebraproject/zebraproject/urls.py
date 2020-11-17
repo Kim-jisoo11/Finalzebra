@@ -18,10 +18,14 @@ from django.urls import path
 from zebraapp import views
 from django.conf import settings
 from django.conf.urls.static import static
+import accounts.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.main, name ="main"),
+    path('login/',accounts.views.login, name = 'login'),
+    path('logout/',accounts.views.logout, name = 'logout'),
+    path('signup/',accounts.views.signup, name = 'signup'),
     path('product/<int:category_id>/', views.show_product, name='product'),
     path('childproduct/<int:product_id>/', views.show_childproduct, name = 'childproduct' ),
     path('mypage/', views.show_myPage, name = 'mypage'),
