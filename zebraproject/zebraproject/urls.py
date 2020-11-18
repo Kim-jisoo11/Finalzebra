@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.main, name ="main"),
     path('product/<int:category_id>/', views.show_product, name='product'),
-    path('childproduct/<int:product_id>/', views.show_childproduct, name = 'childproduct' ),
+    path('childproduct/<int:product_id>/', views.show_childproduct, name ='childproduct'),
 
 
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
