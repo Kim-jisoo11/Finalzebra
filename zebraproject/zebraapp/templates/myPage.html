@@ -2,11 +2,19 @@
 
 <h2>My Level</h2>
 
+<p>자연을 위해 한 노력</p>
+<h1>Level {{myItems_myLevel.count}}</h1>
+
+
+<a href="{% url 'submit_myItem' %}">내가 산 제품 등록하기</a>
+<br>
+<br>
+
 {% for myItems in myItems_myLevel %}
 
 {{myItems.itemShop}}
 {{myItems.itemName}}
 {{myItems.itemDate}}
-<a href="{% url 'detail_myItem' myItems.id %}" class="">더보기</a>
-
+<a href="{% url 'detail_myItem' myItems.id %}">더보기</a>
+<br>
 {% endfor %}
