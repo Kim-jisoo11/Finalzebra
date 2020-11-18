@@ -11,6 +11,10 @@
             text-decoration: none;
             color: black;
         }
+        a:hover {
+            text-decoration: underline;
+            color: black;
+        }
         li {
             list-style: none;
             align-content: center;
@@ -81,27 +85,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                
                     {% for childproduct in product.childproduct_set.all %}
+                    <tr>
                     <td>
                         {{childproduct.shopName}}
                     </td>
                     <td>
-                        <a href="{{ childproduct.shopLink }}"> <img src="{{ childproduct.image.url }}" class="img" width="100px" height="100px"
+                        <a href="{{ childproduct.shopLink }}" target="_blank"> <img src="{{ childproduct.image.url }}" class="img" width="100px" height="100px"
                             alt="Responsive image"> </a>
                     </td>
                     <td>
-                        <a href="{{ childproduct.shopLink }}"> {{childproduct.name}} </a>
+                        <a href="{{ childproduct.shopLink }}" target="_blank"> {{childproduct.name}} </a>
                     </td>
                     <td>
-                        <a href="{{ childproduct.shopLink }}"> {{childproduct.price}}원 </a>
+                        <a href="{{ childproduct.shopLink }}" target="_blank"> {{childproduct.price}}원 </a>
                     </td>
                     <td>
-                        {{childproduct.ship}}
+                        {{childproduct.ship}}원
                     </td>
-                    {% endfor %}
-                </a>
                 </tr>
+                    {% endfor %}
+                
             </tbody>
         </table>
     </div>
