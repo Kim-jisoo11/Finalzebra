@@ -1,12 +1,12 @@
-{% for post in posts %}
-    <h2>{{product.name}}</h2>
-    <h2>{{product.detail}}</h2>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}제로웨이스트{% endblock %}
 
-    <img src="{{ childproduct.image.url }}" class="img" alt="Responsive image">
-    <h3>{{childproduct.title}}</h3>
-    <h3>{{childproduct.price}}</h3>
-    <h3>{{childproduct.url}}</h3>
-    <br>
-{% endfor %}
+{% block link %}{% static 'css/main.css' %}{% endblock %}
+
+{% block content %}
+
+
+{% endblock content %}
 
 

@@ -1,14 +1,11 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block title %}팁{% endblock %}
 
-<!DOCTYPE html>
-<head>
-    <title>Tip</title>
-    
-</head>
+{% block link %}{% static 'css/tip.css' %}{% endblock %}
 
-<body>
+{% block content %}
 
-<!-- Navigation Bar  -->
 
 <!-- Page Content -->
 
@@ -22,5 +19,4 @@
     
     {% endfor %}
 
-</body>
-
+{% endblock content %}
