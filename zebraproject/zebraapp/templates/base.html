@@ -4,49 +4,55 @@
 <html lang="ko-kr">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{% block title%}{% endblock %}</title>
-  <!-- Css static-->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% block link %} {% endblock %}">
-{% block head %} {% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title%}{% endblock %}</title>
+    <!-- Css static-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% block link %} {% endblock %}">
+    {% block head %} {% endblock %}
 
 </head>
 
 <body>
-  <div class="wrapper">
-    <!--navbar -->
-    <header>
-      <div class="nav">
+    <div class="wrapper">
+        <!--navbar -->
+        <header>
+            <div class="nav">
 
-        <a class="logo" href="{%url 'main'%}" style="font-family: netmarbleB;">
-          <!-- <img src="{% static 'img/logo.svg' %}" width="30" height="30" alt="logo"></a> -->
+                <a class="logo" href="{%url 'main'%}">
+                    <img src="{% static 'img/logo.svg' %}" width="30" height="30" alt="logo"> ZEROWASTE </a>
 
-        <ul id="nav-right">
+                <ul class="nav-right">
 
-          <li><a class="link" href="{% url 'product' 1 %}">쇼핑</a></li>
-          {% if user.is_authenticated %}
-          <li><a class="link" href="{% url 'mypage' %}">마이페이지</a></li>
-          <li><a class="link" href="{% url 'tip' %}">팁</li>
-          <li><a class="link" href="{% url 'logout' %}">로그아웃</a></li>
-          <li><a class="link" href="https://github.com/Kim-jisoo11/Finalzebra.git">소개</a></li>
-          </li>
-          {% else %}
-          <li><a class="link" href="{% url 'login' %}">마이페이지</a></li>
-          <li><a class="link" href="{% url 'login' %}">팁</li>
-          <li><a class="link" href="{% url 'login' %}">로그인</a></li>
-          <li><a class="link" href="https://github.com/Kim-jisoo11/Finalzebra.git">소개</a></li>
+                    <li><a class="link" href="{% url 'product' 1 %}">SHOP</a></li>
 
-          {% endif %}
+                    {% if user.is_authenticated %}
+                    <li><a class="link" href="{% url 'tip' %}">TIP</a></li>
+                    <li><img src="{% static 'img/user.png' %}" width="30" height="30" alt="logo">
+                        {{user.username}}
+                        <ul class="submenu">
+                            <li><a class="link" href="{% url 'mypage' %}">MY</a></li>
+                            <li><a class="link" href="{% url 'logout' %}">LOGOUT</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li><a class="link" href="{% url 'tip' %}">TIP</a></li>
+                    <li><a class="link" href="{% url 'login' %}">LOGIN</a></li>
+                    {% endif %}
 
-        </ul>
-      </div>
-    </header>
+                </ul>
+            </div>
+        </header>
 
-    {% block content %}
-    {% endblock %}
-  </div>
+        <!--  -->
+
+
+
+
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 
 </html>
