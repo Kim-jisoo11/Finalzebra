@@ -1,0 +1,91 @@
+/* Navbar */
+
+.nav {
+    /* 사이즈 설정 */
+    width: 100%;
+    height: 60px;
+
+    /* 컬러 및 투명도 설정 */
+    background-color: rgb(204, 185, 157);
+
+    /* 위치 설정 */
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+
+}
+
+.logo {
+    display: inline-block;
+    position: absolute;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    line-height: 60px;
+}
+
+#nav-right {
+    display: inline-block;
+    width: 430px;
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    right: 0px;
+    line-height: 60px;
+    text-align: center;
+}
+
+#navright :hover {
+    cursor: pointer;
+}
+
+#nav-right li {
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+    right: 0px;
+    text-align: right;
+}
+
+#nav-right li:last-child {
+    margin-right: 0px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.user {
+
+    text-align: center;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    line-height: 60px;
+}
+
+.footer {
+    width: 100%;
+    height: 200px;
+    margin-top: -10px;
+    background-color:rgb(255, 206, 203);
+    text-align: center;
+    line-height: 200px;
+    vertical-align: middle;
+    color: rgb(255, 255, 255);
+}
+
+button:focus {
+	outline: none;
+}
