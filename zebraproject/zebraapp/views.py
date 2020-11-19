@@ -69,6 +69,7 @@ def delete_myItem_in_myPage(request, my_Items_id):
     myItems.delete()
     return redirect('mypage')
 
+
 def tip(request):
     tips = Tip.objects.all()
     return render(request, 'tip.html',{'tips':tips})
@@ -79,6 +80,7 @@ def tip_detail(request, tip_id):
 
 #@login_required
 def like(request, product_id):
+    # childproduct = ChildProduct.objects.all()
     user = request.user
     product = ChildProduct.objects.get(id=product_id)
     current_likes = product.likes
@@ -96,4 +98,13 @@ def like(request, product_id):
     product.likes = current_likes
     product.save()
 
-    return HttpResponseRedirect(reverse('childproduct', args=[product_id]))
+    print(product_id, " ", product.name, " ", product.product.id)
+
+    return HttpResponseRedirect(reverse('childproduct', args=[product.product.id]))
+
+# 찜
+def likeCart(request):
+    categories = Category.objects.all()
+    likes = Likes.objects.filter(user=request.user)
+   
+    return render(request, 'likeCart.html', {'likes' : likes})

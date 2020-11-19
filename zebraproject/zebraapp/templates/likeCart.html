@@ -1,0 +1,40 @@
+<!-- {% for like in likes %}
+    <h1> {{ like.product.name }} </h1>
+
+{% endfor %} -->
+
+<table>
+    <thead>
+        <tr>
+            <th>판매처</th>
+            <th>상품사진</th> 
+            <th>상품명</th>
+            <th>판매가</th>
+            <th>배송비</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            {% for like in likes %}
+            <tr>
+            <td>
+                {{like.product.shopName}}
+            </td>
+            <td>
+                <a href="{{ like.product.shopLink }}" target="_blank"> <img src="{{ like.product.image.url }}" class="img" width="100px" height="100px"
+                    alt="Responsive image"> </a>
+            </td>
+            <td>
+                <a href="{{ like.product.shopLink }}" target="_blank"> {{like.product.name}} </a>
+            </td>
+            <td>
+                <a href="{{ like.product.shopLink }}" target="_blank"> {{like.product.price}}원 </a>
+            </td>
+            <td>
+                {{like.product.ship}}원
+            </td>
+        </tr>
+            {% endfor %}
+        
+    </tbody>
+</table>
