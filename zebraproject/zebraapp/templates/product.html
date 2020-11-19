@@ -1,8 +1,12 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block title %}쇼핑하기{% endblock %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+{% block link %}{% static 'css/product.css' %}{% endblock %}
 
+{% block content %}
 
+<!-- category bar -->
 <div class="product_all">
     <ul class="category_bar">
         {% for categories in categories %}
@@ -18,6 +22,7 @@
     </ul>
 </div>
 
+<!-- product 상품 부분 -->
 
 <div class="product-align">
     <div class="product-container">
@@ -36,17 +41,4 @@
 </div>
 
 
-<!-- <div class="product-align">
-    <div class="product-container">
-        {% for post in posts %}
-        <div class="product-card">
-            상품 이미지
-            <div class="product-img">
-                {% if post.image %}
-                    <img src="{{post.image.url}}" alt="image">
-                {% endif %}
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div> -->
+{% endblock content %}
