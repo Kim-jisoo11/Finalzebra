@@ -36,5 +36,6 @@ urlpatterns = [
     path('mypage/<int:my_Items_id>/delete_myItem', views.delete_myItem_in_myPage, name = 'delete_myItem'),
     path('tip/',views.tip, name ="tip"),
     path('tip/<int:tip_id>',views.tip_detail, name ="tip_detail"),
-    
+    path('childproduct/<int:product_id>/like',views.like, name ="productlike"),
+        
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

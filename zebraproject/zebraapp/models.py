@@ -28,6 +28,7 @@ class ChildProduct(models.Model):
     shopLink = models.TextField(null=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     ship = models.CharField(max_length = 255 , null = True)
+    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -55,6 +56,10 @@ class TipBody(models.Model):
     tip = models.ForeignKey(Tip, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/')
     body = models.TextField()
+
+class Likes(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_like')
+    product = models.ForeignKey(ChildProduct, on_delete=models.CASCADE, related_name='product_likes')
 
 
 

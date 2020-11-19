@@ -1,3 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}상품 정보 수정{% endblock %}
+
+{% block link %}{% static 'css/mypage.css' %}{% endblock %}
+
+{% block content %}
 <h1>등록한 제품 수정하기</h1>
 <form action="{% url 'update_myItem' myItems_update.id %}" method="POST">
     {% csrf_token %}
@@ -12,3 +19,4 @@
 
     <button type="submit" class="btn btn-primary">수정하기</button>
 </form>
+{% endblock content %}
