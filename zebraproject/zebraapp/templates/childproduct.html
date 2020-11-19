@@ -1,74 +1,13 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block title %}쇼핑하기{% endblock %}
 
-<head>
+{% block link %}{% static 'css/childProduct.css' %}{% endblock %}
 
-    <style>
-        body {
-            margin: 0 auto;
-            width: 70%;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: black;
-        }
-        li {
-            list-style: none;
-            align-content: center;
-        }
-        .productDetails {
-            margin-left: 100px;
-            height: fit-content;
-        }
-        .productImg {
-            float: left;
-            margin-right: 50px;
-        }
-        .productDetails h3 {
-            margin-top: 50px;
-            padding-top: 100px;
-        }
-        .productDetails p {
-            width: 80%;
-
-        }
-        .childDetails {
-            clear: both;
-
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-        table {
-            width: 90%;
-            text-align: center;
-            margin: auto;
-            font-family: 'S-CoreDream-3Light';
-            border-collapse: separate;
-            border-spacing: 0;
-
-        }
-
-        tr th,
-        tr td {
-            border-bottom: 1px solid lightgray;
-            padding: 10px;
-        }
-
-        tr th {
-            border-top: 1px solid lightgray;
-            text-align: center;
-        }
-
-    </style>
-
-</head>
-
-<body>
+{% block content %}
+<div class="container">
     <div class="productDetails">
-        <img src="{{ product.image.url }}" class="productImg" width="300px" height="300px">
+        <img src="{{ product.image.url }}" class="productImg" width="30%" height="30%">
         <h3> {{ product.name }} </h3>
         <p> {{product.detail }} </p>
     </div>
@@ -111,4 +50,5 @@
         </table>
     </div>
 
-</body>
+</div>
+{% endblock content %}
