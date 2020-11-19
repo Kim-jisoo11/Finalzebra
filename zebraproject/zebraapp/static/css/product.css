@@ -5,6 +5,7 @@
 /* 카테고리 */
 
 .category_bar {
+    
     margin: 0 auto;
     margin-left : 500px;
     margin-bottom: 1.5rem;
@@ -22,6 +23,7 @@
 }
 
 .category_list {
+   
     margin-left: 70px;
     float: left;
 }
