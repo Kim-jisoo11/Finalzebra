@@ -1,3 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}마이페이지{% endblock %}
+
+{% block link %}{% static 'css/mypage.css' %}{% endblock %}
+
+{% block content %}
 <h1>My Page</h1>
 
 <h2>My Level</h2>
@@ -27,3 +34,5 @@
 <a href="{% url 'detail_myItem' myItems.id %}">더보기</a>
 <br>
 {% endfor %}
+
+{% endblock content %}

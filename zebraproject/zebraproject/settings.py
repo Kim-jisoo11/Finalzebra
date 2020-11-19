@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'zebraapp.apps.ZebraappConfig',
     'accounts.apps.AccountsConfig',
+    'django_material_icons',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}상품 상세페이지{% endblock %}
+
+{% block link %}{% static 'css/mypage.css' %}{% endblock %}
+
+{% block content %}
 <h2>{{myItems_detail.itemName}}</h2>
 
 {{myItems_detail.itemShop}}
 {{myItems_detail.itemDate}}
 <a href="{% url 'update_myItem' myItems_detail.id %}">수정</a>
 <a href="{% url 'delete_myItem' myItems_detail.id %}">삭제</a>
+{% endblock content %}

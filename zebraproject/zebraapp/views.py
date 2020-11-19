@@ -1,7 +1,7 @@
-from django.shortcuts import render
-from .models import Category, Product, ChildProduct, MyItem, Tip, TipBody
-from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
+from .models import Category, Product, ChildProduct, MyItem, Tip, TipBody, Likes
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
@@ -76,3 +76,24 @@ def tip(request):
 def tip_detail(request, tip_id):
     tip = get_object_or_404(Tip, pk=tip_id)
     return render(request, 'tip_detail.html', {'tip':tip})
+
+#@login_required
+def like(request, product_id):
+    user = request.user
+    product = ChildProduct.objects.get(id=product_id)
+    current_likes = product.likes
+
+    liked = Likes.objects.filter(user=user, product=product).count()
+
+    if not liked:
+        like = Likes.objects.create(user=user, product=product)
+        current_likes = current_likes + 1
+    
+    else:
+        Likes.objects.filter(user=user, product=product).delete()
+        current_likes = current_likes - 1
+
+    product.likes = current_likes
+    product.save()
+
+    return HttpResponseRedirect(reverse('childproduct', args=[product_id]))

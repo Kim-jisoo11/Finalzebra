@@ -1,3 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}내 상품 등록{% endblock %}
+
+{% block link %}{% static 'css/mypage.css' %}{% endblock %}
+
+{% block content %}
 <h1>내가 산 제품 등록하기</h1>
 
 <form action="{% url 'create_myItem' %}">
@@ -13,3 +20,5 @@
     <button type="submit" class="btn btn-primary">등록하기</button>
 
 </form>
+
+{% endblock content %}
