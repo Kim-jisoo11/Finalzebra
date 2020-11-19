@@ -1,13 +1,114 @@
 {% load static %}
 
+<head>
 
-{% for childproduct in product.childproduct_set.all %}
+    <style>
+        body {
+            margin: 0 auto;
+            width: 70%;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: black;
+        }
+        li {
+            list-style: none;
+            align-content: center;
+        }
+        .productDetails {
+            margin-left: 100px;
+            height: fit-content;
+        }
+        .productImg {
+            float: left;
+            margin-right: 50px;
+        }
+        .productDetails h3 {
+            margin-top: 50px;
+            padding-top: 100px;
+        }
+        .productDetails p {
+            width: 80%;
 
-    {{childproduct.name}}
-    {{childproduct.shopLink}}
-    {{childproduct.shopName}}
-    {{childproduct.ship}}
-    
-    <img src="{{ childproduct.image.url }}" class="img" width ="300px" height ="300px" alt="Responsive image">
+        }
+        .childDetails {
+            clear: both;
 
-{% endfor %}
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        table {
+            width: 90%;
+            text-align: center;
+            margin: auto;
+            font-family: 'S-CoreDream-3Light';
+            border-collapse: separate;
+            border-spacing: 0;
+
+        }
+
+        tr th,
+        tr td {
+            border-bottom: 1px solid lightgray;
+            padding: 10px;
+        }
+
+        tr th {
+            border-top: 1px solid lightgray;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="productDetails">
+        <img src="{{ product.image.url }}" class="productImg" width="300px" height="300px">
+        <h3> {{ product.name }} </h3>
+        <p> {{product.detail }} </p>
+    </div>
+
+    <div class="childDetails">
+        <table>
+            <thead>
+                <tr>
+                    <th>판매처</th>
+                    <th>상품사진</th> 
+                    <th>상품명</th>
+                    <th>판매가</th>
+                    <th>배송비</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    {% for childproduct in product.childproduct_set.all %}
+                    <tr>
+                    <td>
+                        {{childproduct.shopName}}
+                    </td>
+                    <td>
+                        <a href="{{ childproduct.shopLink }}" target="_blank"> <img src="{{ childproduct.image.url }}" class="img" width="100px" height="100px"
+                            alt="Responsive image"> </a>
+                    </td>
+                    <td>
+                        <a href="{{ childproduct.shopLink }}" target="_blank"> {{childproduct.name}} </a>
+                    </td>
+                    <td>
+                        <a href="{{ childproduct.shopLink }}" target="_blank"> {{childproduct.price}}원 </a>
+                    </td>
+                    <td>
+                        {{childproduct.ship}}원
+                    </td>
+                </tr>
+                    {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+
+</body>

@@ -14,15 +14,14 @@
 
 
 {% for post in posts %}
-    
+
+    <a href="{% url 'childproduct' post.id %}">
     <h2>{{post.name}}</h2>
     <h2>{{post.detail}}</h2>
     {{post.shopLink}}
-
     <img src="{{ post.image.url }}" class="img" width ="300px" height ="300px" alt="Responsive image">
-    <!-- <h3>{{post.ship}}</h3>
-    <h3>{{post.price}}</h3>
-    <h3>{{post.shopLink}}</h3> -->
+    </a>
     <br>
+    
 {% endfor %}
 

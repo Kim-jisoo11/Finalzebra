@@ -7,10 +7,15 @@ class TipBodyInline(admin.TabularInline):
 class TipAdmin(admin.ModelAdmin):
     inlines = [TipBodyInline, ]
 
+class ChildProductInline(admin.TabularInline):
+    model = ChildProduct
+
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [ChildProductInline, ]
+
 # Register your models here.
 
 admin.site.register(Category)
-admin.site.register(Product)
-admin.site.register(ChildProduct)
 admin.site.register(MyItem)
 admin.site.register(Tip, TipAdmin)
+admin.site.register(Product, ProductAdmin)
