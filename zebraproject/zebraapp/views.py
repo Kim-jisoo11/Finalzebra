@@ -40,12 +40,6 @@ def submit_myItem_in_myPage(request):
 
 def create_myItem_in_myPage(request):
     myItems = MyItem()
-    # if request.method == "POST":
-    #     myItems.myItemName = request.POST.get('itemName')
-    #     myItems.myItemShop = request.POST.get('itemShop')
-    #     myItems.myItemDate = request.POST.get('itemDate')
-    #     myItems.save()
-    
     myItems.itemName = request.GET['itemName']
     myItems.itemShop = request.GET['itemShop']
     myItems.itemDate = request.GET['itemDate']

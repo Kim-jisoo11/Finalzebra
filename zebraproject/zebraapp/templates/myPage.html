@@ -5,6 +5,15 @@
 <p>자연을 위해 한 노력</p>
 <h1>Level {{myItems_myLevel.count}}</h1>
 
+{% if myItems_myLevel.count == 0 %}
+<p>당신의 화분에 씨앗을 심어보세요</p>
+{% elif myItems_myLevel.count > 0 %}
+<p>새싹🌱</p>
+{% elif myItems_myLevel.count > 5 %}
+<p>나무🌲</p>
+{% else %}
+<p>참 잘했어요</p>
+{% endif %}
 
 <a href="{% url 'submit_myItem' %}">내가 산 제품 등록하기</a>
 <br>
