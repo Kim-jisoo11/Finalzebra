@@ -3,8 +3,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
 
 
-
-
 <div class="product_all">
     <ul class="category_bar">
         {% for categories in categories %}
@@ -24,14 +22,14 @@
 <div class="product-align">
     <div class="product-container">
         {% for post in posts %}
-        <figure class="snip1585">
-            {% if post.image %}
-            <img src="{{post.image.url}}" alt="image">
-            {% endif %}
-            <figcaption>
-                <h3>{{post.name}}</h3>
-            </figcaption>
-            <a href="#"></a>
+            <figure class="snip1585">
+                {% if post.image %}
+                <img src="{{post.image.url}}" alt="image">
+                {% endif %}
+        <figcaption>
+            <h3>{{post.name}}</h3>
+        </figcaption>
+        <a href="{% url 'childproduct' post.id %}"></a>
         </figure>
         {% endfor %}
     </div>
