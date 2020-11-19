@@ -1,27 +1,52 @@
 {% load static %}
 
-{% for categories in categories %}
-    {% if category == categories %}
-    <li class="category_list"><a href="{% url 'product' categories.id %}">
-            {{categories}}</a>
-    </li>
-    {% else %}
-    <li class="category_list"><a href="{% url 'product' categories.id %}">{{categories}}</a></li>
-    {% endif %}
-{% endfor %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
 
 
+<div class="product_all">
+    <ul class="category_bar">
+        {% for categories in categories %}
+        {% if category == categories %}
+        <li class="category_list"><a href="{% url 'product' categories.id %}"
+                style="background-color:darkgrey; color:white; border-radius:30px;">{{categories}}</a>
+        </li>
+        {% else %}
+        <li class="category_list"><a href="{% url 'product' categories.id %}">{{categories}}</a></li>
+        {% endif %}
+        {% endfor %}
+
+    </ul>
+</div>
 
 
-{% for post in posts %}
+<div class="product-align">
+    <div class="product-container">
+        {% for post in posts %}
+            <figure class="snip1585">
+                {% if post.image %}
+                <img src="{{post.image.url}}" alt="image">
+                {% endif %}
+        <figcaption>
+            <h3>{{post.name}}</h3>
+        </figcaption>
+        <a href="{% url 'childproduct' post.id %}"></a>
+        </figure>
+        {% endfor %}
+    </div>
+</div>
 
-    <a href="{% url 'childproduct' post.id %}">
-    <h2>{{post.name}}</h2>
-    <h2>{{post.detail}}</h2>
-    {{post.shopLink}}
-    <img src="{{ post.image.url }}" class="img" width ="300px" height ="300px" alt="Responsive image">
-    </a>
-    <br>
-    
-{% endfor %}
 
+<!-- <div class="product-align">
+    <div class="product-container">
+        {% for post in posts %}
+        <div class="product-card">
+            상품 이미지
+            <div class="product-img">
+                {% if post.image %}
+                    <img src="{{post.image.url}}" alt="image">
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div> -->
