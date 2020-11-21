@@ -1,9 +1,23 @@
+@font-face {
+    font-family: 'BBTreeGB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BBTreeGL';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,
 body {
     margin: 0;
     width: 100%;
     height: 100%;
-    /* font-family: 'Noto Sans CJK KR'; */
+    font-family: 'BBTreeGL';
 
     /* 스크롤 삭제 */
     -ms-overflow-style: none;

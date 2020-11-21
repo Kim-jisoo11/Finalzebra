@@ -1,3 +1,21 @@
-.grid-container {
-    margin: 10%;
+.container {
+    margin: 0 auto;
+    padding-top: 200px;
+    width: 70%;
+}
+
+.cover{
+    width: 100%;
+    height: auto;
+    padding: 3% 0 5% 0;
+}
+
+.title{
+    font-family: 'BBTreeGB';
+    font-size: 3rem;
+    padding:  0;
+}
+
+.date{
+    font-size: 1.5rem;
 }

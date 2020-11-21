@@ -5,16 +5,16 @@
 {% block link %}{% static 'css/tip_detail.css' %}{% endblock %}
 
 {% block content %}
-<div class="grid-container">
+<div class="container">
     <div class="title">{{tip.title}}</div>
-    <div class="">{{tip.pub_date|date:"Y M D"}}</div>
-    <img src="{{ tip.cover.url }}" width="300px" height="300px" alt="tipimage">
+    <div class="date">{{tip.pub_date|date:"Y M D"}}</div>
+    <img class="cover" src="{{ tip.cover.url }}" alt="cover">
 
     <hr>
 
     {% for body in tip.tipbody_set.all %}
 
-    <img src="{{ body.image.url }}" class="img" width="300px" height="300px" alt="Responsive image">
+    <img src="{{ body.image.url }}" class="cover" alt="tip-image">
     <div class="body">{{body.body}}</div>
 
     {% endfor %}
