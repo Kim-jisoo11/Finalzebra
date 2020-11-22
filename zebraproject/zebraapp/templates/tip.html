@@ -10,13 +10,13 @@
 
     {% for tip in tips %}
 
-        <article class="location-listing">
+        <article class="listing">
 
-        <a class="location-title" href="{% url 'tip_detail' tip.id %}">{{tip.title}}</a>
+        <a class="title" href="{% url 'tip_detail' tip.id %}">{{tip.title}}</a>
         <div class="thumbnail-wrappper">
             <div class="thumbnail">
             <div class="centered">
-            <img src="{{ tip.cover.url }}" class="landscape"></a>
+            <img src="{{ tip.cover.url }}" class="cover"></a>
             </div>
             </div>
         </div>
