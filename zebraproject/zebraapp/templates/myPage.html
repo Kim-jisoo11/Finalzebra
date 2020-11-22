@@ -1,38 +1,61 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}마이페이지{% endblock %}
 
 {% block link %}{% static 'css/mypage.css' %}{% endblock %}
 
 {% block content %}
-<h1>My Page</h1>
 
-<h2>My Level</h2>
+<div class="mypage_all">
+    
+    <!-- MyLevel -->
+    <div id="wrapper">
+        <section id="main">
+            <section id="header">
+                <p>자연을 위해 한 노력</p>
+                <h2>My Level</h2>
+                <span class="avatar">
+                    {% if myItems_myLevel.count == 0 %}
+                    <p>당신의 화분에 씨앗을 심어보세요</p>
+                    {% elif myItems_myLevel.count > 0 %}
+                    <img src="{% static 'img/seed.png' %}">
+                    {% elif myItems_myLevel.count > 5 %}
+                    <img src="{% static 'img/gardening.png' %}">
+                    {% else %}
+                    <img src="{% static 'img/trees.png' %}">
+                    {% endif %}
+                </span>
+                <h1>Level {{myItems_myLevel.count}}</h1>
+            </section>
+        </section>
+        
 
-<p>자연을 위해 한 노력</p>
-<h1>Level {{myItems_myLevel.count}}</h1>
+        <ul class="icons">
+            <li><a href="{% url 'submit_myItem' %}" class="button">내가 산 제품 등록하기</a></li>
+        </ul>
+        <br>
+        <br>
+        
+       
 
-{% if myItems_myLevel.count == 0 %}
-<p>당신의 화분에 씨앗을 심어보세요</p>
-{% elif myItems_myLevel.count > 0 %}
-<p>새싹🌱</p>
-{% elif myItems_myLevel.count > 5 %}
-<p>나무🌲</p>
-{% else %}
-<p>참 잘했어요</p>
-{% endif %}
+        <!-- 타임라인 -->
+                {% for myItems in myItems_myLevel %}
+                  <div>
+                    <time>{{myItems.itemDate}}</time>
+                    {{myItems.itemShop}}
+                    {{myItems.itemName}}
+                    <br>
+                    <a href="{% url 'detail_myItem' myItems.id %}">더보기</a>
+                  </div>
 
-<a href="{% url 'submit_myItem' %}">내가 산 제품 등록하기</a>
-<br>
-<br>
+                {% endfor %}
+            </ol>
+            
+        </section>
+        
+    </div>
+</div>
 
-{% for myItems in myItems_myLevel %}
-
-{{myItems.itemShop}}
-{{myItems.itemName}}
-{{myItems.itemDate}}
-<a href="{% url 'detail_myItem' myItems.id %}">더보기</a>
-<br>
-{% endfor %}
 
 {% endblock content %}

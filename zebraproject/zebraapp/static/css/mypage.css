@@ -1,0 +1,163 @@
+.mypage_all {
+    margin: 0 auto;
+    margin-top:80px;
+    background-color: rgb(245, 237, 226);
+}
+
+#main {
+    -moz-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -moz-transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -moz-transition: opacity 1s ease, -moz-transform 1s ease;
+    -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
+    -ms-transition: opacity 1s ease, -ms-transform 1s ease;
+    transition: opacity 1s ease, transform 1s ease;
+    padding: 2.5em 2em 2em 2em ;
+    background: #ffffff;
+    border-radius: 12px;
+    cursor: default;
+    max-width: 100%;
+    opacity: 0.95;
+    position: relative;
+    text-align: center;
+    width: 27em;
+}
+
+    #main .avatar {
+        position: relative;
+        display: block;
+        margin-bottom: 1.5em;
+    }
+
+    #main .avatar img {
+        display: block;
+        margin: 0 auto;
+        margin-top: 2rem;
+        border-width: 0;
+        box-shadow: 0 0 0 1.5em #ffffff;
+        width: 5rem;
+        height: 5rem;
+        background-color: #ffffff;
+    }
+
+    #main .avatar:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -1em;
+        width: calc(100% + 2em);
+        height: 1px;
+        z-index: -1;
+        background: #c8cccf;
+    }
+
+    @media screen and (max-width: 480px) {
+
+        #main {
+            padding: 4em 2em 2.5em 2em ;
+            width: 100%;
+        }
+
+            #main .avatar:before {
+                left: -2em;
+                width: calc(100% + 4em);
+            }
+
+    }
+
+    body.is-preload #main {
+        -moz-transform: rotateX(15deg);
+        -webkit-transform: rotateX(15deg);
+        -ms-transform: rotateX(15deg);
+        transform: rotateX(15deg);
+        opacity: 0;
+    }
+
+/* Wrapper */
+
+#wrapper {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -moz-perspective: 1000px;
+    -webkit-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+    position: relative;
+    min-height: 100%;
+    padding: 1.5em;
+    z-index: 2;
+}
+
+    #wrapper > * {
+        z-index: 1;
+    }
+
+    #wrapper:before {
+        content: '';
+        display: block;
+    }
+
+    @media screen and (max-width: 360px) {
+
+        #wrapper {
+            padding: 0.75em;
+        }
+
+    }
+
+    body.is-ie #wrapper {
+        height: 100%;
+    }
+
+
+
+    .button {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		display: inline-block;
+		height: 2.75em;
+		line-height: 2.75em;
+        padding: 0 1.5em;
+        position: relative;
+        margin-right: 3rem;
+        background-color: transparent;
+		border-radius: 4px;
+		/* border: solid 1px #c8cccf; */
+        border: solid 2px  rgb(204, 185, 157);
+		color: #414f57 !important;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+    }
+    
+    .button:hover {
+        border-color: #015f33;
+        color: #015f33 !important;
+    }
