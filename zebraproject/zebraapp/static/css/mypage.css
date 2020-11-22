@@ -129,7 +129,10 @@
         height: 100%;
     }
 
-
+    button {
+        border-style: none;
+        background-color: transparent;
+    }
 
     .button {
 		-moz-appearance: none;
@@ -158,6 +161,6 @@
     }
     
     .button:hover {
-        border-color: #015f33;
-        color: #015f33 !important;
+        border-color: #00a357;
+        color: #00a357 !important;
     }

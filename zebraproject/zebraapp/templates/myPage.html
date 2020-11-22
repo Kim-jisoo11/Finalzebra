@@ -32,7 +32,7 @@
         
 
         <ul class="icons">
-            <li><a href="{% url 'submit_myItem' %}" class="button">내가 산 제품 등록하기</a></li>
+            <button onClick="popup_submit();location.href=''"><li><a href="#" class="button">내가 산 제품 등록하기</a></li></button>
         </ul>
         <br>
         <br>
@@ -56,6 +56,15 @@
         
     </div>
 </div>
+
+<script>
+    function popup_submit(){
+        var url = "submit_myItem";
+        var name = "내가 산 제품 등록하기";
+        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
+</script>
 
 
 {% endblock content %}
