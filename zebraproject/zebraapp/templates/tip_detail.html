@@ -7,14 +7,12 @@
 {% block content %}
 <div class="container">
     <div class="title">{{tip.title}}</div>
-    <div class="date">{{tip.pub_date|date:"Y M D"}}</div>
+    <div class="date">{{tip.pub_date|date:"Y년 m월 d일"}}</div>
     <img class="cover" src="{{ tip.cover.url }}" alt="cover">
-
-    <hr>
 
     {% for body in tip.tipbody_set.all %}
 
-    <img src="{{ body.image.url }}" class="cover" alt="tip-image">
+    <img src="{{ body.image.url }}" class="bodyimg" alt="tip-image">
     <div class="body">{{body.body}}</div>
 
     {% endfor %}

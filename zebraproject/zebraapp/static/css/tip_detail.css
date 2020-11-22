@@ -1,21 +1,28 @@
 .container {
     margin: 0 auto;
-    padding-top: 200px;
-    width: 70%;
+    padding: 10rem 0 10rem 0;
+    width: 60%;
 }
 
 .cover{
     width: 100%;
     height: auto;
-    padding: 3% 0 5% 0;
+    margin: 2rem 0;
 }
 
 .title{
     font-family: 'BBTreeGB';
     font-size: 3rem;
-    padding:  0;
+    margin: 1rem 0;
 }
 
 .date{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.bodyimg{
+    width: 100%;
+    height: auto;
+    margin: 2rem 0 1rem 0;
 }
