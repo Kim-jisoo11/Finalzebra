@@ -29,8 +29,8 @@
         <br>
 
 
-        <a class="button" id="submit_button"><button type="submit" class="btn btn-primary">등록하기</button></a>
-        <a class="button" id="close_submit_button"><button type="submit" class="btn btn-primary" onClick="close_popup()">완료</button></a>
+        <a class="button" id="submit_button"><button type="submit" class="btn btn-primary" onClick="redirect_mypage()">등록하기</button></a>
+        <a class="button" id="close_submit_button"><button type="submit" class="btn btn-primary" onClick="close_popup()">닫기</button></a>
 
 
     </div>
@@ -38,8 +38,11 @@
 
 <!-- '완료'버튼 누르면 팝업창 닫히는 기능 -->
 <script>
-    function close_popup(){
+    function redirect_mypage(){
         window.opener.parent.location.href = "/mypage";
+    }
+
+    function close_popup(){
         window.close();
     }
 </script>
