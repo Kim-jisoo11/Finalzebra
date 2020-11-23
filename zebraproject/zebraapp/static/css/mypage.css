@@ -1,3 +1,4 @@
+/* myPage.html */
 .mypage_all {
     margin: 0 auto;
     margin-top:80px;
@@ -164,3 +165,56 @@
         border-color: #00a357;
         color: #00a357 !important;
     }
+
+
+
+/* ---------------------------------------------------------------------------- */
+/* sub_Item_myPage.html */
+    #submit_button {
+        margin: 0;
+        padding: 0rem 0rem;
+    }
+
+    #submit_button.button {
+        padding: 0 0;
+        width: 5rem;
+        margin: auto;
+        margin-top: 2em;
+        margin-left: 1rem;
+    }
+
+    #close_submit_button {
+        margin: 0;
+        padding: 0 1rem;
+    }
+
+    #close_submit_button.button {
+        padding: 0 0;
+        width: 5rem;
+        margin: auto;
+        margin-top: 2em;
+        margin-right: 1rem;
+    }
+
+    #close_submit_button .btn.btn-primary {
+        padding: 0;
+    }
+
+    #submit_form {
+        padding-top: 3rem;
+    }
+
+    .form_wrapper {
+        width: 50%;
+        margin: auto;
+        padding-left: 10%;
+    }
+
+
+/* detail_Item_myPage.html */
+.detail_wrapper {
+    padding-top: 8rem;
+    padding-left: 3rem;
+    width: 70vw;
+}
+

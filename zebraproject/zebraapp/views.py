@@ -46,7 +46,7 @@ def create_myItem_in_myPage(request):
     myItems.itemShop = request.GET['itemShop']
     myItems.itemDate = request.GET['itemDate']
     myItems.save()
-    return redirect('submit_myItem')
+    return redirect('submit_myItem_pop')
 
 def detail_myItem_in_myPage(request, my_Items_id):
     myItems_detail = get_object_or_404(MyItem, pk=my_Items_id)

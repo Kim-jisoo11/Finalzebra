@@ -17,13 +17,13 @@
                 <h2>My Level</h2>
                 <span class="avatar">
                     {% if myItems_myLevel.count == 0 %}
-                    <p>당신의 화분에 씨앗을 심어보세요</p>
+                        <p>당신의 화분에 씨앗을 심어보세요</p>
                     {% elif myItems_myLevel.count > 0 %}
-                    <img src="{% static 'img/seed.png' %}">
+                        <img src="{% static 'img/seed.png' %}">
                     {% elif myItems_myLevel.count > 5 %}
-                    <img src="{% static 'img/gardening.png' %}">
+                        <img src="{% static 'img/gardening.png' %}">
                     {% else %}
-                    <img src="{% static 'img/trees.png' %}">
+                        <img src="{% static 'img/trees.png' %}">
                     {% endif %}
                 </span>
                 <h1>Level {{myItems_myLevel.count}}</h1>
@@ -46,7 +46,7 @@
                     {{myItems.itemShop}}
                     {{myItems.itemName}}
                     <br>
-                    <a href="{% url 'detail_myItem' myItems.id %}">더보기</a>
+                    <a href="{% url 'detail_myItem' myItems.id %}" class="button_more">...more</a>
                   </div>
 
                 {% endfor %}
@@ -62,8 +62,9 @@
         var url = "submit_myItem";
         var name = "내가 산 제품 등록하기";
         var option = "width = 500, height = 500, top = 100, left = 200, location = no"
-        window.open(url, name, option);
+        window.open(url, name, option); 
     }
+
 </script>
 
 
