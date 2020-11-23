@@ -46,7 +46,7 @@
                     {{myItems.itemShop}}
                     {{myItems.itemName}}
                     <br>
-                    <a href="{% url 'detail_myItem' myItems.id %}" class="button_more">...more</a>
+                    <a href="{% url 'detail_myItem' myItems.id %}" class="button_more"><img src="{% static 'img/pen.png' %}" width="10"><img src="{% static 'img/trash.png' %}" width="10"></a>
                   </div>
 
                 {% endfor %}
