@@ -10,8 +10,7 @@
     <title>{% block title%}{% endblock %}</title>
     <!-- Css static-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% block link %} {% endblock %}">
     {% block head %} {% endblock %}
 
@@ -48,14 +47,15 @@
             </div>
         </header>
 
-        <!--  -->
-
-
-
-
         {% block content %}
         {% endblock %}
     </div>
+
+    <footer>
+        <div class="footer">
+            Copyright ⓒ 멋쟁이사자처럼 8기 팀 2DX2. All Rights Reserved.
+        </div>
+    </footer>
 </body>
 
 </html>
