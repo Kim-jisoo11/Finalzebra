@@ -149,8 +149,7 @@
 		line-height: 2.75em;
         padding: 0 1.5em;
         position: relative;
-        margin-top: 2rem;
-        /* margin-right: 3rem; */
+        margin-right: 3rem;
         background-color: transparent;
 		border-radius: 4px;
 		/* border: solid 1px #c8cccf; */
@@ -171,22 +170,34 @@
 
 /* ---------------------------------------------------------------------------- */
 /* sub_Item_myPage.html */
+    #submit_button {
+        margin: 0;
+        padding: 0rem 0rem;
+    }
+
     #submit_button.button {
         padding: 0 0;
         width: 5rem;
-        height: 3rem;
+        margin: auto;
+        margin-top: 2em;
+        margin-left: 1rem;
+    }
+
+    #close_submit_button {
+        margin: 0;
+        padding: 0 1rem;
+    }
+
+    #close_submit_button.button {
+        padding: 0 0;
+        width: 5rem;
         margin: auto;
         margin-top: 2em;
         margin-right: 1rem;
     }
 
-    #close_submit_button.button {
-        padding: 0 0;
-        height: 3rem;
-        width: 5rem;
-        margin: auto;
-        margin-top: 2em;
-        margin-left: 1rem;
+    #close_submit_button .btn.btn-primary {
+        padding: 0;
     }
 
     #submit_form {
@@ -206,11 +217,12 @@
     }
 
     .form_wrapper {
-        width: 35rem;
-        margin-left: 30%;
-        margin-right: 10%;
-        /* padding-left: 5rem; */
-        padding-right: 10em;
+        width: 50%;
+        margin-right: 10vw;
+        margin-left: 10vw;
+        padding-right: 70px;
+        padding-left: 70px;
+        min-width: 465px;
     }
 
     #input_item {
@@ -229,7 +241,7 @@
 }
 
 /* mypage - timeline */
-*,
+/* *,
 *::before,
 *::after {
   margin: 0;
@@ -244,7 +256,7 @@ button {
   outline: none;
 }
 
-/* body {
+body {
   font: normal 16px/1.5 "Helvetica Neue", sans-serif;
   background: #456990;
   color: #fff;
@@ -255,11 +267,12 @@ button {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .section {
-  padding: 5px 0;
+  background: #F45B69;
+  padding: 50px 0;
 }
 
 .section .container {
-  width: 50%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
