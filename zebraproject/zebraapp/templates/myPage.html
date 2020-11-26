@@ -15,17 +15,20 @@
                 <p>자연을 위해 한 노력</p>
                 <h2>My Level</h2>
                 <span class="avatar">
-                    {% if myItems_myLevel.count == 0 %}
+
+                    {% if count == 0 %}
                         <p>당신의 화분에 씨앗을 심어보세요</p>
-                    {% elif myItems_myLevel.count > 0 %}
-                        <img src="{% static 'img/seed.png' %}">
-                    {% elif myItems_myLevel.count > 5 %}
+                    {% elif count > 10 %}
+                        <img src="{% static 'img/trees.png' %}">
+                    {% elif count > 5 %} 
                         <img src="{% static 'img/gardening.png' %}">
                     {% else %}
-                        <img src="{% static 'img/trees.png' %}">
+                        <img src="{% static 'img/seed.png' %}">
+                        
                     {% endif %}
+                   
                 </span>
-                <h1>Level {{myItems_myLevel.count}}</h1>
+                <h1>Level {{count}}</h1>
             </section>
         </section>
         

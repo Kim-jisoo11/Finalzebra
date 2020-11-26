@@ -35,7 +35,9 @@ def show_childproduct(request, product_id):
 
 def show_myPage(request):
     myItems_myLevel = MyItem.objects.all()
-    return render(request,'myPage.html', {'myItems_myLevel':myItems_myLevel})
+    count = myItems_myLevel.count()
+    print(type(count))
+    return render(request,'myPage.html', {'myItems_myLevel':myItems_myLevel, 'count':count})
 
 def submit_myItem_in_myPage(request):
     return render(request, 'sub_Item_myPage.html')
