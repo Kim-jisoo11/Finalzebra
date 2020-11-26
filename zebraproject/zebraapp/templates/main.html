@@ -5,8 +5,17 @@
 {% block link %}{% static 'css/main.css' %}{% endblock %}
 
 {% block content %}
-
-
+<img src="{% static 'img/main.png' %}" class="main-img" alt="tip main">
+<div class="title-container">
+    <p class="title">어서오세요<br>제로웨이스트 플랫폼입니다</p>
+</div>
+<br>
+<div class="img-container">
+    <img src="{% static 'img/eco.jpg' %}" class="sub-img" alt="main">
+    <p class="text">{{user.username}}님과 함께 지구를 지키는 사람들<br>__명</p>
+</div>
+<div class="img-container">
+    <img src="{% static 'img/shopping.jpg' %}" class="sub-img" alt="main">
+    <p class="text">제로웨이스트</p>
+</div>
 {% endblock content %}
-
-

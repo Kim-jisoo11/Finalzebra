@@ -1,0 +1,54 @@
+.main-img{
+    position: fixed;
+    top:5%;
+    width: 100%;
+    background-attachment: fixed;
+    z-index: -10;
+}
+
+.title-container{
+    width: 100%;
+    height: 30%;
+    margin: 28rem 0;
+    text-align: center;
+    /* position: fixed; */
+    z-index: 10;
+}
+
+.title{
+    font-family: 'MapoFlowerIsland';
+    font-size: 2.5rem;
+    margin: 0;
+    margin-bottom: 1.5%;
+    color:  rgb(54, 44, 39);
+}
+
+.img-container{
+    z-index: 10;
+    margin: 0 auto;
+    padding: 5rem 0 20rem 0;
+    width: 60%;
+    text-align: center;
+    position: relative
+}
+
+.sub-img{
+    width: 100%;
+    vertical-align: middle;
+}
+
+
+.text{
+    font-family: 'MapoFlowerIsland';
+    font-size: 1.8em;
+    color:  rgb(255, 255, 255);
+	text-align: center;
+	position: absolute;
+	top: 34%;
+	left: 50%;
+    transform: translate( -50%, -50% );
+}
+
+a:hover {
+    cursor: pointer;
+}

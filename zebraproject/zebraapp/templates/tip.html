@@ -6,7 +6,7 @@
 
 {% block content %}
 <img src="{% static 'img/tip.jpg' %}" class="main-img" alt="tip main">
-
+<div class="product-align">
 <div class="grid-container">
 
     {% for tip in tips %}
@@ -26,5 +26,20 @@
 
     {% endfor %}
 </div>
+</div>
+
+    <!-- <div class="product-align">
+        <div class="product-container">
+            {% for tip in tips %}
+                <figure class="snip1585">
+                    <img src="{{ tip.cover.url }}" alt="image">
+            <figcaption>
+                <h3>{{tip.title}}</h3>
+            </figcaption>
+            <a href="{% url 'tip_detail' tip.id %}"></a>
+            </figure>
+            {% endfor %}
+        </div>
+    </div> -->
 
 {% endblock content %}
