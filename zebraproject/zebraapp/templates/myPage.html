@@ -5,34 +5,212 @@
 {% block link %}{% static 'css/mypage.css' %}{% endblock %}
 
 {% block content %}
-<h1>My Page</h1>
 
-<h2>My Level</h2>
+<div class="mypage_all">
+    
+    <!-- MyLevel -->
+    <div id="wrapper_mylevel">
+        <section id="main">
+            <section id="header">
+                <p>자연을 위해 한 노력</p>
+                <h2>My Level</h2>
+                <span class="avatar">
+                    {% if myItems_myLevel.count == 0 %}
+                        <p>당신의 화분에 씨앗을 심어보세요</p>
+                    {% elif myItems_myLevel.count > 0 %}
+                        <img src="{% static 'img/seed.png' %}">
+                    {% elif myItems_myLevel.count > 5 %}
+                        <img src="{% static 'img/gardening.png' %}">
+                    {% else %}
+                        <img src="{% static 'img/trees.png' %}">
+                    {% endif %}
+                </span>
+                <h1>Level {{myItems_myLevel.count}}</h1>
+            </section>
+        </section>
+        
 
-<p>자연을 위해 한 노력</p>
-<h1>Level {{myItems_myLevel.count}}</h1>
+        <ul class="icons">
+            <button onClick="popup_submit();location.href=''"><a href="#" class="button">내가 산 제품 등록하기</a></button>
+        </ul>
+        <br>
+        <br>
+    </div>
+    
+    <!-- 타임라인 -->
+    <section class="section intro">
+        <div class="container">
+          <h2>My Items</h2>
+        </div>
+      </section>
+      
+      <section class="timeline">
+        <ol>
+            {% for myItems in myItems_myLevel %}
+            <li>
+                <a href="{% url 'detail_myItem' myItems.id %}" class=""><div>
+                    <time><h4>{{myItems.itemName}}</h4></time>
+                    <br>
+                    <h5>{{myItems.itemShop}}</h5>
+                    <br>
+                    <h6>{{myItems.itemDate}}</h6>
+                    <br>
+                </div></a>
+            </li>
+          {% endfor %}
+         
+          <li>
+            <div>
+              <time>1985</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+            </div>
+          </li>
+         
+          <li></li>
+        </ol>
+        
+        <div class="arrows">
+          <button id="timeline_button" class="arrow arrow__prev disabled" disabled>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_prev.svg" alt="prev timeline arrow">
+          </button>
+          <button id="timeline_button" class="arrow arrow__next">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_next.svg" alt="next timeline arrow">
+          </button>
+        </div>
+      </section>
+      
+</div>
 
-{% if myItems_myLevel.count == 0 %}
-<p>당신의 화분에 씨앗을 심어보세요</p>
-{% elif myItems_myLevel.count > 0 %}
-<p>새싹🌱</p>
-{% elif myItems_myLevel.count > 5 %}
-<p>나무🌲</p>
-{% else %}
-<p>참 잘했어요</p>
-{% endif %}
+<script>
+    function popup_submit(){
+        var url = "submit_myItem";
+        var name = "내가 산 제품 등록하기";
+        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+        window.open(url, name, option); 
+    }
 
-<a href="{% url 'submit_myItem' %}">내가 산 제품 등록하기</a>
-<br>
-<br>
+    
+(function () {
 
-{% for myItems in myItems_myLevel %}
+    // VARIABLES
+    var timeline = document.querySelector(".timeline ol"),
+        elH = document.querySelectorAll(".timeline li > div"),
+        arrows = document.querySelectorAll(".timeline .arrows .arrow"),
+        arrowPrev = document.querySelector(".timeline .arrows .arrow__prev"),
+        arrowNext = document.querySelector(".timeline .arrows .arrow__next"),
+        firstItem = document.querySelector(".timeline li:first-child"),
+        lastItem = document.querySelector(".timeline li:last-child"),
+        xScrolling = 280,
+        disabledClass = "disabled";
+  
+    // START
+    window.addEventListener("load", init);
+  
+    function init() {
+      setEqualHeights(elH);
+      animateTl(xScrolling, arrows, timeline);
+      setSwipeFn(timeline, arrowPrev, arrowNext);
+      setKeyboardFn(arrowPrev, arrowNext);
+    }
+  
+    // SET EQUAL HEIGHTS
+    function setEqualHeights(el) {
+      var counter = 0;
+      for (var i = 0; i < el.length; i++) {
+        var singleHeight = el[i].offsetHeight;
+  
+        if (counter < singleHeight) {
+          counter = singleHeight;
+        }
+      }
+  
+      for (var i = 0; i < el.length; i++) {
+        el[i].style.height = counter + "px";
+      }
+    }
+  
+    // CHECK IF AN ELEMENT IS IN VIEWPORT
+    // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+    function isElementInViewport(el) {
+      var rect = el.getBoundingClientRect();
+      return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+    }
+  
+    // SET STATE OF PREV/NEXT ARROWS
+    function setBtnState(el) {
+      var flag = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+  
+      if (flag) {
+        el.classList.add(disabledClass);
+      } else {
+        if (el.classList.contains(disabledClass)) {
+          el.classList.remove(disabledClass);
+        }
+        el.disabled = false;
+      }
+    }
+  
+    // ANIMATE TIMELINE
+    function animateTl(scrolling, el, tl) {
+      var counter = 0;
+      for (var i = 0; i < el.length; i++) {
+        el[i].addEventListener("click", function () {
+          if (!arrowPrev.disabled) {
+            arrowPrev.disabled = true;
+          }
+          if (!arrowNext.disabled) {
+            arrowNext.disabled = true;
+          }
+          var sign = this.classList.contains("arrow__prev") ? "" : "-";
+          if (counter === 0) {
+            tl.style.transform = "translateX(-" + scrolling + "px)";
+          } else {
+            var tlStyle = getComputedStyle(tl);
+            // add more browser prefixes if needed here
+            var tlTransform = tlStyle.getPropertyValue("-webkit-transform") || tlStyle.getPropertyValue("transform");
+            var values = parseInt(tlTransform.split(",")[4]) + parseInt("" + sign + scrolling);
+            tl.style.transform = "translateX(" + values + "px)";
+          }
+  
+          setTimeout(function () {
+            isElementInViewport(firstItem) ? setBtnState(arrowPrev) : setBtnState(arrowPrev, false);
+            isElementInViewport(lastItem) ? setBtnState(arrowNext) : setBtnState(arrowNext, false);
+          }, 1100);
+  
+          counter++;
+        });
+      }
+    }
+  
+    // ADD SWIPE SUPPORT FOR TOUCH DEVICES
+    function setSwipeFn(tl, prev, next) {
+      var hammer = new Hammer(tl);
+      hammer.on("swipeleft", function () {
+        return next.click();
+      });
+      hammer.on("swiperight", function () {
+        return prev.click();
+      });
+    }
+  
+    // ADD BASIC KEYBOARD FUNCTIONALITY
+    function setKeyboardFn(prev, next) {
+      document.addEventListener("keydown", function (e) {
+        if (e.which === 37 || e.which === 39) {
+          var timelineOfTop = timeline.offsetTop;
+          var y = window.pageYOffset;
+          if (timelineOfTop !== y) {
+            window.scrollTo(0, timelineOfTop);
+          }
+          if (e.which === 37) {
+            prev.click();
+          } else if (e.which === 39) {
+            next.click();
+          }
+        }
+      });
+    }
+  })();
+</script>
 
-{{myItems.itemShop}}
-{{myItems.itemName}}
-{{myItems.itemDate}}
-<a href="{% url 'detail_myItem' myItems.id %}">더보기</a>
-<br>
-{% endfor %}
 
 {% endblock content %}

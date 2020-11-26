@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}상품 상세페이지{% endblock %}
 
 {% block link %}{% static 'css/mypage.css' %}{% endblock %}
 
 {% block content %}
-<h2>{{myItems_detail.itemName}}</h2>
 
-{{myItems_detail.itemShop}}
-{{myItems_detail.itemDate}}
-<a href="{% url 'update_myItem' myItems_detail.id %}">수정</a>
-<a href="{% url 'delete_myItem' myItems_detail.id %}">삭제</a>
+<div class="detail_wrapper">
+    <h2>{{myItems_detail.itemName}}</h2>
+
+    {{myItems_detail.itemShop}}
+    <br>
+    {{myItems_detail.itemDate}}
+    <br>
+    <br>
+    <a href="{% url 'update_myItem' myItems_detail.id %}" class="edit_button">수정</a>
+    <a href="{% url 'delete_myItem' myItems_detail.id %}" class="delete_button">삭제</a>
+</div>
+
 {% endblock content %}

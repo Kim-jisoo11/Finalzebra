@@ -1,13 +1,15 @@
+/* 페이지 전체 */
 .product_all {
     margin: 0 auto;
+    margin-top:110px;
 }
 
-/* 카테고리 */
 
+/* 카테고리 */
 .category_bar {
     
     margin: 0 auto;
-    margin-left : 500px;
+    margin-left : 32%;
     margin-bottom: 1.5rem;
     list-style: none;
     border-radius: 10px;
@@ -24,7 +26,11 @@
 
 .category_list {
    
+<<<<<<< HEAD
     margin-left: 70px;
+=======
+    margin-left: 5%;
+>>>>>>> soovin
     float: left;
 }
 
@@ -42,10 +48,28 @@
     border-radius: 30px;
 }
 
+<<<<<<< HEAD
 
 /* product 이미지 */
 
 
+=======
+@media (max-width :800px;){
+  .category_bar {
+    width :auto;
+  }
+  .category_list {
+    width : auto;
+  }
+  .category_bar:after {
+    width : auto;
+  }
+}
+
+
+
+/* product 이미지 */
+>>>>>>> soovin
 .product-align {
     margin: auto;
     flex-direction: column;

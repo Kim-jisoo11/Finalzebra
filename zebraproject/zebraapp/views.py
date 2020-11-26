@@ -7,6 +7,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import F
+import json
+from django.http import JsonResponse
 import operator
 # Create your views here.
 def main(request):
@@ -44,10 +46,10 @@ def create_myItem_in_myPage(request):
     myItems.itemShop = request.GET['itemShop']
     myItems.itemDate = request.GET['itemDate']
     myItems.save()
-    return redirect('mypage')
+    return redirect('submit_myItem_pop')
 
 def detail_myItem_in_myPage(request, my_Items_id):
-    myItems = get_object_or_404(MyItem, pk=my_Items_id)
+    myItems_detail = get_object_or_404(MyItem, pk=my_Items_id)
     return render(request, 'detail_Item_myPage.html', {'myItems_detail':myItems_detail})
 
 def update_myItem_in_myPage(request, my_Items_id):
@@ -78,7 +80,7 @@ def tip_detail(request, tip_id):
     tip = get_object_or_404(Tip, pk=tip_id)
     return render(request, 'tip_detail.html', {'tip':tip})
 
-#@login_required
+@login_required
 def like(request, product_id):
     # childproduct = ChildProduct.objects.all()
     user = request.user
