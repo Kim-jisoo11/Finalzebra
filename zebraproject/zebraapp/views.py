@@ -12,7 +12,9 @@ from django.http import JsonResponse
 import operator
 # Create your views here.
 def main(request):
-    return render(request,'main.html')
+    userCount = User.objects.all().count()
+    userCount = userCount + 12560
+    return render(request,'main.html', {'userCount' : userCount})
 
 
 def show_product(request, category_id):
@@ -89,6 +91,7 @@ def like(request, product_id):
     current_likes = product.likes
 
     liked = Likes.objects.filter(user=user, product=product).count()
+    
 
     if not liked:
         like = Likes.objects.create(user=user, product=product)

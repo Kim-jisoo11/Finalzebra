@@ -12,7 +12,9 @@
 <br>
 <div class="img-container">
     <img src="{% static 'img/eco.jpg' %}" class="sub-img" alt="main">
-    <p class="text">{{user.username}}님과 함께 지구를 지키는 사람들<br>__명</p>
+    {% if user.is_authenticated %}
+    <p class="text">{{user.username}}님과 <br> 함께 지구를 지키는 사람들<br> <br>{{ userCount }}명</p>
+    {% endif %}
 </div>
 <div class="img-container">
     <img src="{% static 'img/shopping.jpg' %}" class="sub-img" alt="main">
