@@ -84,7 +84,6 @@ def tip_detail(request, tip_id):
 
 @login_required
 def like(request, product_id):
-    # childproduct = ChildProduct.objects.all()
     user = request.user
     product = ChildProduct.objects.get(id=product_id)
     current_likes = product.likes
@@ -107,6 +106,7 @@ def like(request, product_id):
     return HttpResponseRedirect(reverse('childproduct', args=[product.product.id]))
 
 # 찜
+@login_required
 def likeCart(request):
     categories = Category.objects.all()
     likes = Likes.objects.filter(user=request.user)

@@ -44,9 +44,24 @@
                     <td>
                         {{childproduct.ship}}원
                     </td>
+<<<<<<< HEAD
                     <td></td>
+=======
+                    <td>
+                        {% if user.is_authenticated %}
+                        <button class="button_mybtn" name="add_cart" value="add_cart"
+                        onClick="alertOK()">
+>>>>>>> sungmin
                         <a href="{% url 'productlike' childproduct.id %}" class=""><i class="material-icons md-dark">favorite</i></a>
                         <p>{{childproduct.likes}}</p>
+                        </button>
+                        {% else %}
+                        <button class="button_mybtn" onClick="alertConfirm();location.href='login';">
+                            <a href="{% url 'productlike' childproduct.id %}" class=""><i class="material-icons md-dark">favorite</i></a>
+                            <p>{{childproduct.likes}}</p>
+                        </button>
+                        <!-- type="submit"  -->
+                        {% endif %}
                     </td>
                 </tr>
                     {% endfor %}
@@ -54,6 +69,12 @@
             </tbody>
         </table>
     </div>
-
 </div>
+<script>
+    function alertConfirm() {
+        var alertToVisiter = alert('로그인하세요');
+        event.preventDefault();
+
+    }
+</script>
 {% endblock content %}
