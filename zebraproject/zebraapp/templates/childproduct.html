@@ -44,14 +44,10 @@
                     <td>
                         {{childproduct.ship}}원
                     </td>
-<<<<<<< HEAD
-                    <td></td>
-=======
                     <td>
                         {% if user.is_authenticated %}
                         <button class="button_mybtn" name="add_cart" value="add_cart"
                         onClick="alertOK()">
->>>>>>> sungmin
                         <a href="{% url 'productlike' childproduct.id %}" class=""><i class="material-icons md-dark">favorite</i></a>
                         <p>{{childproduct.likes}}</p>
                         </button>
