@@ -25,7 +25,8 @@
             <div class="nav">
 
                 <a class="logo" href="{%url 'main'%}">
-                    <img src="{% static 'img/logo.svg' %}" width="30" height="30" alt="logo"> ZEROWASTE </a>
+                    <!-- <img src="{% static 'img/logo.svg' %}" width="30" height="30" alt="logo" class="base-img"> -->
+                    ZEROWASTE </a>
 
                 <ul class="nav-right">
 
@@ -33,7 +34,7 @@
 
                     {% if user.is_authenticated %}
                     <li><a class="link" href="{% url 'tip' %}">TIP</a></li>
-                    <li><img src="{% static 'img/user.png' %}" width="30" height="30" alt="logo">
+                    <li><img src="{% static 'img/user.png' %}" width="30" height="30" alt="logo" class="user-img">
                         {{user.username}}
                         <ul class="submenu">
                             <li><a class="link" href="{% url 'likeCart' %}">LIKES</a></li>
@@ -50,14 +51,15 @@
             </div>
         </header>
 
-        <!--  -->
-
-
-
-
         {% block content %}
         {% endblock %}
     </div>
+
+    <footer>
+        <div class="footer">
+            Copyright ⓒ 멋쟁이사자처럼 8기 팀 2DX2. All Rights Reserved.
+        </div>
+    </footer>
 </body>
 
 </html>

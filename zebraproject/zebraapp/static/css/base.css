@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'MapoFlowerIsland';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,
 body {
     margin: 0;
@@ -76,7 +83,11 @@ a:visited {
     display: inline-block;
 }
 
-
+.user-img{
+    vertical-align: middle;
+    border: rgb(255, 255, 255) 1px solid;
+    border-radius: 50%;
+}
 .nav-right {
     width: 300px;
     position: absolute;
@@ -125,8 +136,8 @@ ul.nav-right>li:hover ul.submenu {
 .footer {
     width: 100%;
     height: 200px;
-    margin-top: -10px;
-    background-color: rgb(255, 206, 203);
+    margin-top: 200px;
+    background-color:rgb(211, 201, 185);
     text-align: center;
     line-height: 200px;
     vertical-align: middle;

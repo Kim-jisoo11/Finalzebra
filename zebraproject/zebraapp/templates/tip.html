@@ -5,25 +5,41 @@
 {% block link %}{% static 'css/tip.css' %}{% endblock %}
 
 {% block content %}
-
+<img src="{% static 'img/tip.jpg' %}" class="main-img" alt="tip main">
+<div class="product-align">
 <div class="grid-container">
 
     {% for tip in tips %}
 
-        <article class="listing">
+    <article class="listing">
 
         <a class="title" href="{% url 'tip_detail' tip.id %}">{{tip.title}}</a>
         <div class="thumbnail-wrappper">
             <div class="thumbnail">
-            <div class="centered">
-            <img src="{{ tip.cover.url }}" class="cover"></a>
-            </div>
+                <div class="centered">
+                    <img src="{{ tip.cover.url }}" class="cover"></a>
+                </div>
             </div>
         </div>
 
-        </article>
+    </article>
 
     {% endfor %}
 </div>
+</div>
+
+    <!-- <div class="product-align">
+        <div class="product-container">
+            {% for tip in tips %}
+                <figure class="snip1585">
+                    <img src="{{ tip.cover.url }}" alt="image">
+            <figcaption>
+                <h3>{{tip.title}}</h3>
+            </figcaption>
+            <a href="{% url 'tip_detail' tip.id %}"></a>
+            </figure>
+            {% endfor %}
+        </div>
+    </div> -->
 
 {% endblock content %}
