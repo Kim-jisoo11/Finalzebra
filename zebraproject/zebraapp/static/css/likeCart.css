@@ -1,5 +1,5 @@
 .container {
-    padding-top: 5%;
+    padding-top: 7%;
     margin: 0 auto;
     width: 70%;
 }
@@ -15,21 +15,12 @@ li {
     list-style: none;
     align-content: center;
 }
-.productDetails {
-    margin-left: 100px;
+.headTxt {
+    margin-left: 50px;
     height: fit-content;
+    font-size: 30px;
 }
-.productImg {
-    float: left;
-    margin-right: 50px;
-}
-.productDetails h3 {
-    margin-top: 50px;
-    padding-top: 100px;
-}
-.productDetails p {
-    width: 80%;
-}
+
 .childDetails {
     clear: both;
     padding-top: 40px;
@@ -54,10 +45,4 @@ tr td {
 tr th {
     border-top: 1px solid lightgray;
     text-align: center;
-}
-
-.button_mybtn {
-    border: none;
-    outline: none;
-    background-color: #ffffff;
 }

@@ -38,5 +38,8 @@ urlpatterns = [
     path('tip/',views.tip, name ="tip"),
     path('tip/<int:tip_id>',views.tip_detail, name ="tip_detail"),
     path('childproduct/<int:product_id>/like',views.like, name ="productlike"),
+    path('childproduct/1/login/', accounts.views.login, name ='login'),
+    path('childproduct/2/login/', accounts.views.login, name ='login'),
+    path('childproduct/3/login/', accounts.views.login, name ='login'),
         
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

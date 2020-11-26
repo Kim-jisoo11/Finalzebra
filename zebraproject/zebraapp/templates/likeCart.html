@@ -1,8 +1,14 @@
-<!-- {% for like in likes %}
-    <h1> {{ like.product.name }} </h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}쇼핑하기{% endblock %}
 
-{% endfor %} -->
+{% block link %}{% static 'css/likeCart.css' %}{% endblock %}
 
+{% block content %}
+<div class="container">
+    <div class="headTxt">
+        <p> 찜한 상품 </p>
+    </div>
 <table>
     <thead>
         <tr>
@@ -38,3 +44,5 @@
         
     </tbody>
 </table>
+</div>
+{% endblock content %}
