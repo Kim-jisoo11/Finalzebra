@@ -32,9 +32,20 @@
   <link href="{% static 'account/../assets/dist/css/bootstrap.css' %}" rel="stylesheet">
 
   <style>
+    a:visited,
+    a:hover,
+    a:focus,
+    a:active {
+      
+      color:  rgb(53, 53, 53);
+    }
+
+    body {
+      background-color: rgb(211, 201, 185);
+    }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
-
       text-anchor: middle;
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -53,9 +64,20 @@
       margin: 50px auto;
       width: 300px;
       padding: 33px 25px 29px;
+      color: rgb(53, 53, 53);
+      font-family: 'S-CoreDream-5Medium';
+      font-size: 18px
+    }
 
+    #login {
+      font-family: 'S-CoreDream-5Medium';
+    }
+
+    .loginbody {
+      font-family: 'S-CoreDream-3Light';
     }
   </style>
+
   <!-- Custom styles for this template -->
   <link href="{% static 'account/signin.css' %}" rel="stylesheet">
 </head>
@@ -72,12 +94,13 @@
       <br>
       <br>
       <br>
-      <div style="font-family:'S-CoreDream-2ExtraLight';">
+      <div class="loginbody">
         <label for="username" class="sr-only"> User Name</label>
         <input type="text" name="username" id="username" class="form-control" placeholder="username" required autofocus>
         <label for="inputpassword" class="sr-only"> password</label>
         <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
-        <button class="btn btn-lg btn-dark btn-block" type="submit" style="font-size :18px;"> 로그인</button>
+        <br>
+        <button class="btn btn-lg btn-dark btn-block" type="submit" style = "font-size : 18px; background-color: rgb(53, 53, 53);"> 로그인</button>
         <div class="text-center">
           <br>
           {% for message in messages %}
@@ -88,11 +111,10 @@
             {{ message }}
 
           </div>
-          {% endfor %}
-          <a href="{% url 'signup' %}" style=" font-family : 'S-CoreDream-5Medium'; font-size : 18px;">회원가입</a>
         </div>
+        {% endfor %}
+        <a href="{% url 'signup' %}" id="login">회원가입하기</a>
         <br>
-
         <br>
         <br>
       </div>

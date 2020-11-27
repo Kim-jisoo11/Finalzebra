@@ -24,7 +24,7 @@ def login_main(request):
             return redirect('main')
 
         else:
-               messages.error(request,'😕 아이디 또는 비밀번호가 일치하지 않습니다.')
+               messages.error(request,'아이디 또는 비밀번호가 일치하지 않습니다.')
                return redirect('login')
     else : 
         return render (request, 'login.html')
@@ -40,7 +40,7 @@ def login(request):
             return redirect('main')
 
         else:
-               messages.error(request,'😕 아이디 또는 비밀번호가 일치하지 않습니다.')
+               messages.error(request,'아이디 또는 비밀번호가 일치하지 않습니다.')
                return redirect('login')
     else : 
         return render (request, 'login.html')
