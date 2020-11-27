@@ -11,13 +11,15 @@
 </div>
 <br>
 <div class="img-container">
-    <img src="{% static 'img/eco.jpg' %}" class="sub-img" alt="main">
+    <img src="{% static 'img/main1.png' %}" class="sub-img" alt="main">
     {% if user.is_authenticated %}
-    <p class="text">{{user.username}}님과 <br> 함께 지구를 지키는 사람들<br> <br>{{ userCount }}명</p>
+    <p class="text">{{user.username}}님과 <br> 함께 지구를 지키는 사람들<br> <br>"{{ userCount }}"명</p>
+    {% else %}
+    <p class="text">제로웨이스트 플랫폼에서 <br> 함께 지구를 지키는 사람들<br> <br>"{{ userCount }}"명</p>
     {% endif %}
 </div>
 <div class="img-container">
-    <img src="{% static 'img/shopping.jpg' %}" class="sub-img" alt="main">
-    <p class="text">제로웨이스트</p>
+    <img src="{% static 'img/main2.png' %}" class="sub-img" alt="main">
+    <p class="text-second">제로 웨이스트:<br>포장을 줄이거나 재활용 가능한 재료를 사용해<br> 쓰레기를 줄이려는 세계적인 움직임</p>
 </div>
 {% endblock content %}
