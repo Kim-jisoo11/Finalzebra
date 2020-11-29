@@ -209,10 +209,10 @@
         width: 35rem;
         margin-left: 30%;
         margin-right: 10%;
-        /* padding-left: 5rem; */
         padding-right: 10em;
     }
 
+    /* submit, update page */
     #input_item {
         background-color: #e4e4e4;
         opacity: 50%;
@@ -220,6 +220,38 @@
         border-radius: 4px;
         height: 2rem;
     }
+
+/* update_Item_myPage.html */
+      #update_button.button {
+        padding: 0 0;
+        width: 5rem;
+        height: 3rem;
+        margin: auto;
+        margin-top: 2em;
+        margin-right: 1rem;
+      }
+    
+      #update_form {
+        padding-top: 3rem;
+        min-width: 420px;
+        padding-bottom: 5rem;
+      }
+
+      .update_wrapper h1 {
+        margin: auto;
+        text-align: center;
+        padding-top: 100px;
+        padding-left: 70px;
+        padding-right: 70px;
+      }
+
+      .update_form_wrapper {
+        width: 35rem;
+        margin-left: 30%;
+        margin-right: 30%;
+        padding-left: 10%;
+    }
+
 
 /* detail_Item_myPage.html */
 .detail_wrapper {
