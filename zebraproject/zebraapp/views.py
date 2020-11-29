@@ -84,6 +84,7 @@ def tip_detail(request, tip_id):
     tip = get_object_or_404(Tip, pk=tip_id)
     return render(request, 'tip_detail.html', {'tip':tip})
 
+# 좋아요 누르기
 @login_required
 def like(request, product_id):
     user = request.user
@@ -91,7 +92,6 @@ def like(request, product_id):
     current_likes = product.likes
 
     liked = Likes.objects.filter(user=user, product=product).count()
-    
 
     if not liked:
         like = Likes.objects.create(user=user, product=product)
@@ -113,5 +113,9 @@ def like(request, product_id):
 def likeCart(request):
     categories = Category.objects.all()
     likes = Likes.objects.filter(user=request.user)
+    totalSum = 0
+    for items in likes:
+        totalSum = totalSum + 1
+    print(totalSum)
    
-    return render(request, 'likeCart.html', {'likes' : likes})
+    return render(request, 'likeCart.html', {'likes' : likes, 'totalSum' : totalSum})
