@@ -67,3 +67,11 @@ tr th {
     outline: none;
     background-color: #ffffff;
 }
+
+.material-icons.red { 
+    color:red;
+}
+
+.material-icons.black { 
+    color:black;
+}

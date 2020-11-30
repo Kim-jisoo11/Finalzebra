@@ -17,7 +17,7 @@
             <thead>
                 <tr>
                     <th>판매처</th>
-                    <th>상품사진</th> 
+                    <th>상품사진</th>
                     <th>상품명</th>
                     <th>판매가</th>
                     <th>배송비</th>
@@ -25,15 +25,16 @@
                 </tr>
             </thead>
             <tbody>
-                
-                    {% for childproduct in product.childproduct_set.all %}
-                    <tr>
+
+                {% for childproduct in product.childproduct_set.all %}
+                <tr>
                     <td>
                         {{childproduct.shopName}}
                     </td>
                     <td>
-                        <a href="{{ childproduct.shopLink }}" target="_blank"> <img src="{{ childproduct.image.url }}" class="img" width="100px" height="100px" border-radius="10px"
-                            alt="Responsive image"> </a>
+                        <a href="{{ childproduct.shopLink }}" target="_blank"> <img src="{{ childproduct.image.url }}"
+                                class="img" width="100px" height="100px" border-radius="10px" alt="Responsive image">
+                        </a>
                     </td>
                     <td>
                         <a href="{{ childproduct.shopLink }}" target="_blank"> {{childproduct.name}} </a>
@@ -46,22 +47,28 @@
                     </td>
                     <td>
                         {% if user.is_authenticated %}
-                        <button class="button_mybtn" name="add_cart" value="add_cart"
-                        onClick="alertOK()">
-                        <a href="{% url 'productlike' childproduct.id %}" class=""><i class="material-icons md-dark">favorite</i></a>
-                        <p>{{childproduct.likes}}</p>
+                        {% if childproduct.likes == 0 %}
+                        <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
+                            <a href="{% url 'productlike' childproduct.id %}" class=""><i
+                                    class="material-icons black">favorite</i></a>
                         </button>
                         {% else %}
+                        <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
+                            <a href="{% url 'productlike' childproduct.id %}" class=""><i
+                                    class="material-icons red">favorite</i></a>
+                        </button>
+                        {% endif %}
+                        {% else %}
                         <button class="button_mybtn" onClick="alertConfirm();location.href='login';">
-                            <a href="{% url 'productlike' childproduct.id %}" class=""><i class="material-icons md-dark">favorite</i></a>
-                            <p>{{childproduct.likes}}</p>
+                            <a href="{% url 'productlike' childproduct.id %}" class=""><i
+                                    class="material-icons black">favorite</i></a>
                         </button>
                         <!-- type="submit"  -->
                         {% endif %}
                     </td>
                 </tr>
-                    {% endfor %}
-                
+                {% endfor %}
+
             </tbody>
         </table>
     </div>

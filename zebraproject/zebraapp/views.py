@@ -95,11 +95,11 @@ def like(request, product_id):
 
     if not liked:
         like = Likes.objects.create(user=user, product=product)
-        current_likes = current_likes + 1
+        current_likes =  1
     
     else:
         Likes.objects.filter(user=user, product=product).delete()
-        current_likes = current_likes - 1
+        current_likes = 0
 
     product.likes = current_likes
     product.save()
@@ -144,6 +144,8 @@ def delete_like(request, product_id):
             print(pk)
             for i in likes:
                 if i.product == product :
+                    quantity =  i.quantity
+                    print(quantity)
                     quantity = quantity + 1
             if quantity > 0 :
                 product = ChildProduct.objects.filter(pk=pk)
