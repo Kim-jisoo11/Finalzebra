@@ -9,7 +9,9 @@
     <div class="productDetails">
         <img src="{{ product.image.url }}" class="productImg" width="30%" height="30%">
         <h3> {{ product.name }} </h3>
-        <p> {{product.detail }} </p>
+        {% autoescape off %}
+        <p class = "word-break"> {{ product.detail|linebreaksbr }} </p>
+        {% endautoescape %}
     </div>
 
     <div class="childDetails">
@@ -32,7 +34,7 @@
                         {{childproduct.shopName}}
                     </td>
                     <td>
-                        <a href="{{ childproduct.shopLink }}" target="_blank"> <img src="{{ childproduct.image.url }}" class="img" width="100px" height="100px" border-radius="10px"
+                        <a href="{{ childproduct.shopLink }}" target="_blank"> <img src="{{ childproduct.image.url }}" class="img" width="100px" height="100px"
                             alt="Responsive image"> </a>
                     </td>
                     <td>

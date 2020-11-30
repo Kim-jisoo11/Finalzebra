@@ -13,7 +13,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='product_category')
     image = models.ImageField(upload_to='images/')
-    detail = models.CharField(max_length = 255)
+    detail = models.TextField(null=True)
     pub_date = models.DateTimeField(auto_now_add = True, null=True)
 
     def __str__(self):
