@@ -46,3 +46,13 @@ tr th {
     border-top: 1px solid lightgray;
     text-align: center;
 }
+button {
+    background-color: white;
+    border: solid 1px rgb(204, 185, 157);
+    padding: 10px 15px 10px 15px;
+    margin-left: 45%;
+}
+button:hover {
+    background-color: rgb(204, 185, 157);
+    text-align: center;
+}

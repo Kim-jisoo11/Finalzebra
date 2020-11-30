@@ -60,6 +60,7 @@ class TipBody(models.Model):
 class Likes(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_like')
     product = models.ForeignKey(ChildProduct, on_delete=models.CASCADE, related_name='product_likes')
+    quantity = models.IntegerField(default=1)
 
 
 

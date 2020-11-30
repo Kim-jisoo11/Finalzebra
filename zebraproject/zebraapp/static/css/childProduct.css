@@ -71,5 +71,12 @@ tr th {
 .word-break{
     word-wrap: break-word;
     font-size: 15px;
-    
+}
+
+.material-icons.red { 
+    color:red;
+}
+
+.material-icons.black { 
+    color:black;
 }
