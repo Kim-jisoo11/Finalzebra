@@ -9,14 +9,14 @@
 
 <div class="detail_wrapper">
     <h2>{{myItems_detail.itemName}}</h2>
-
-    {{myItems_detail.itemShop}}
     <br>
+    구매처 : {{myItems_detail.itemShop}}
+    <br><br>
     {{myItems_detail.itemDate|date:"Y M d D"}}
     <br>
     <br>
-    <a href="{% url 'update_myItem' myItems_detail.id %}" class="edit_button">수정</a>
-    <a href="{% url 'delete_myItem' myItems_detail.id %}" class="delete_button">삭제</a>
+    <a href="{% url 'update_myItem' myItems_detail.id %}" class="button" id="detail_update_button"><button type="submit" class="btn btn-primary">수정</button></a>
+    <a href="{% url 'delete_myItem' myItems_detail.id %}" class="button" id="detail_delete_button"><button type="submit" class="btn btn-primary">삭제</button></a>
 </div>
 
 {% endblock content %}

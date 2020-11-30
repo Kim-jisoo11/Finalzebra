@@ -263,6 +263,16 @@
     width: 70vw;
 }
 
+#detail_delete_button.button:hover {
+  border-color: #da3910;
+  color: #da3910 !important;
+}
+
+#detail_update_button.button:hover {
+  border-color: #106eda;
+  color: #106eda !important;
+}
+
 /* mypage - timeline */
 *,
 *::before,
