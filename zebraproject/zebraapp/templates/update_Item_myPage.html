@@ -5,19 +5,28 @@
 
 {% block link %}{% static 'css/mypage.css' %}{% endblock %}
 
-{% block content %}
-<h1>등록한 제품 수정하기</h1>
-<form action="{% url 'update_myItem' myItems_update.id %}" method="POST">
-    {% csrf_token %}
-    <label for="input_itemName">제품명</label>
-    <input type="text" name="itemName" value="{{myItems_update.itemName}}" class="form-control" id="input_itemName">
-            
-    <label for="input_itemShop">구매처</label>
-    <input type="text" name="itemShop" value="{{myItems_update.itemShop}}" class="form-control" id="input_itemShop">
+{% block content %} 
 
-    <label for="input_itemDate">구매일</label>
-    <input type="date" name="itemDate" value="{{myItems_update.itemDate}}" class="form-control" id="input_itemDate" placeholder="YYYY.MM.DD">
+<div class="update_wrapper">
+    <h1>등록한 제품 수정하기</h1>
+    <div class="update_form_wrapper">
+        <div class="form_single_wrapper">
+            <form action="{% url 'update_myItem' myItems_update.id %}" method="POST" id="update_form">
+                {% csrf_token %}
+                <label for="input_itemName">제품명</label>
+                <input type="text" name="itemName" value="{{myItems_update.itemName}}" class="form-control" id="input_item">
+                <br><br>
+                <label for="input_itemShop">구매처</label>
+                <input type="text" name="itemShop" value="{{myItems_update.itemShop}}" class="form-control" id="input_item">
+                <br><br>
+                <label for="input_itemDate">구매일</label>
+                <input type="date" name="itemDate" value="{{myItems_update.itemDate}}" class="form-control" id="input_item" placeholder="YYYY.MM.DD">
+                <br><br>
+                <!-- <button type="submit" class="btn btn-primary">수정하기</button> -->
+                <a class="button" id="update_button"><button type="submit" class="btn btn-primary">수정하기</button></a>
+            </form>
+        </div>
+    </div>
+</div>
 
-    <button type="submit" class="btn btn-primary">수정하기</button>
-</form>
 {% endblock content %}

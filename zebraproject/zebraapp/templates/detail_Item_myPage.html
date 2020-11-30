@@ -12,7 +12,7 @@
 
     {{myItems_detail.itemShop}}
     <br>
-    {{myItems_detail.itemDate}}
+    {{myItems_detail.itemDate|date:"Y M d D"}}
     <br>
     <br>
     <a href="{% url 'update_myItem' myItems_detail.id %}" class="edit_button">수정</a>
