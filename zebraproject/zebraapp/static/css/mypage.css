@@ -167,6 +167,11 @@
         color: #00a357 !important;
     }
 
+    .first-ment {
+      background-color: #ffffff;
+      z-index: 1;
+    }
+
 /* ---------------------------------------------------------------------------- */
 /* sub_Item_myPage.html */
     #submit_button.button {

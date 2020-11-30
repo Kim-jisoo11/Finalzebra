@@ -17,7 +17,9 @@
                 <span class="avatar">
 
                     {% if count == 0 %}
-                        <p>당신의 화분에 씨앗을 심어보세요</p>
+                      <img src="{% static 'img/shovel.png' %}">    
+                      <br>
+                      <p class="first-ment">당신의 화분에 씨앗을 심어보세요</p>
                     {% elif count > 10 %}
                         <img src="{% static 'img/trees.png' %}">
                     {% elif count > 5 %} 
