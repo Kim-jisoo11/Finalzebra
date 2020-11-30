@@ -67,3 +67,9 @@ tr th {
     outline: none;
     background-color: #ffffff;
 }
+
+.word-break{
+    word-wrap: break-word;
+    font-size: 15px;
+    
+}
