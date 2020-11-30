@@ -106,6 +106,16 @@ def like(request, product_id):
 
     print(product_id, " ", product.name, " ", product.product.id)
 
+    # if request.method == 'POST':
+    #     if 'add_cart' in request.POST:
+    #         for i in cart :
+    #             if i.products == product:
+    #                 product = Product.objects.filter(pk=product_id)
+    #                 Cart.objects.filter(user=request.user, products__in=product).update(quantity=F('quantity') + quantity)
+    #                 return redirect('shopping', category.pk)
+    #         Cart.objects.create(user=user, products=product, quantity=quantity, category=category)
+    #         return redirect('shopping', category.pk)
+
     return HttpResponseRedirect(reverse('childproduct', args=[product.product.id]))
 
 # 찜
@@ -116,6 +126,31 @@ def likeCart(request):
     totalSum = 0
     for items in likes:
         totalSum = totalSum + 1
-    print(totalSum)
    
     return render(request, 'likeCart.html', {'likes' : likes, 'totalSum' : totalSum})
+
+# 찜 삭제
+@login_required
+def delete_like(request, product_id):
+    user = request.user
+    likes = Likes.objects.filter(user=request.user)
+    quantity = 0
+    
+    if request.method == 'POST':
+        try:
+            pk = request.POST.get('product')
+            product = ChildProduct.objects.get(pk=pk)
+            print(product)
+            print(pk)
+            for i in likes:
+                if i.product == product :
+                    quantity = quantity + 1
+            if quantity > 0 :
+                product = ChildProduct.objects.filter(pk=pk)
+                print(product_id)
+                likes = Likes.objects.filter(user=request.user, product_id=pk)
+                print(likes)
+                likes.delete()
+                return redirect('likeCart')
+        except:
+            return redirect('likeCart')

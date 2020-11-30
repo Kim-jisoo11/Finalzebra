@@ -6,49 +6,81 @@
 
 {% block content %}
 <div class="container">
-    <div class="headTxt">
-        <p> 찜한 상품 </p>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>판매처</th>
-                <th>상품사진</th>
-                <th>상품명</th>
-                <th>판매가</th>
-                <th>배송비</th>
-            </tr>
-        </thead>
-        <tbody>
+    <form action="{% url 'delete_like' user.pk %}" method="POST">
+        <div class="headTxt">
+            <p> 찜한 상품 </p>
+        </div>
 
-            {% if totalSum == 0 %}
-            <tr>
-                <td class="nothing" colspan="5"><br>찜한 상품이 없어요!<br><br></td>
-            </tr>
-            {% else %}
-            {% for like in likes %}
-            <tr>
-                <td>
-                    {{like.product.shopName}}
-                </td>
-                <td>
-                    <a href="{{ like.product.shopLink }}" target="_blank"> <img src="{{ like.product.image.url }}"
-                            class="img" width="100px" height="100px" alt="Responsive image"> </a>
-                </td>
-                <td>
-                    <a href="{{ like.product.shopLink }}" target="_blank"> {{like.product.name}} </a>
-                </td>
-                <td>
-                    <a href="{{ like.product.shopLink }}" target="_blank"> {{like.product.price}}원 </a>
-                </td>
-                <td>
-                    {{like.product.ship}}원
-                </td>
-            </tr>
-            {% endfor %}
-            {% endif %}
+        <table>
+            <thead>
+                <tr>
+                    <th>판매처</th>
+                    <th>상품사진</th>
+                    <th>상품명</th>
+                    <th>판매가</th>
+                    <th>배송비</th>
+                    <th>내역 선택</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if totalSum == 0 %}
+                <tr>
+                    <td class="nothing" colspan="6"><br>찜한 상품이 없어요!<br><br></td>
+                </tr>
+                {% else %}
+                {% for like in likes %}
+                <tr>
+                    <td>
+                        {{like.product.shopName}}
+                    </td>
+                    <td>
+                        <a href="{{ like.product.shopLink }}" target="_blank"> <img src="{{ like.product.image.url }}"
+                                class="img" width="100px" height="100px" alt="Responsive image"> </a>
+                    </td>
+                    <td>
+                        <a href="{{ like.product.shopLink }}" target="_blank"> {{like.product.name}} </a>
+                    </td>
+                    <td>
+                        <a href="{{ like.product.shopLink }}" target="_blank"> {{like.product.price}}원 </a>
+                    </td>
+                    <td>
+                        {{like.product.ship}}원
+                    </td>
+                    <td>
+                        <input type="radio" id="product_{{ like.product.id }}" name="product" value="{{ like.product.id }}">
+                        {{ like.product_id }}
+                        {{ like.product.id }}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+        <br>
+
+        {% if like.quantity == 0 %}
+        <button class="button_base mybtn" type="submit" onClick="alertConfirm()"> 선택내역 삭제 </button>
+        {%else%}
+        <button class="button_base mybtn" type="submit" name="delete_like" value="delete_like" onClick="alertDelete()">
+            선택내역 삭제 </button>
+        {% endif %}
+
+        {% csrf_token %}
+    </form>
 </div>
+
+<script>
+    function alertConfirm() {
+        var alertToVisiter = alert('삭제할 항목을 선택해주세요.');
+        event.preventDefault();
+    }
+
+    function alertDelete() {
+        var alertToVisiter = alert('삭제되었습니다.');
+        frm.method = "POST";
+        frm.submit();
+    }
+</script>
+
 {% endblock content %}
