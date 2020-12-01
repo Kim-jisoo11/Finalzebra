@@ -13,7 +13,7 @@
     {% for body in tip.tipbody_set.all %}
 
     <img src="{{ body.image.url }}" class="bodyimg" alt="tip-image">
-    <div class="body">{{body.body}}</div>
+    <div class="body">{{body.body|linebreaksbr}}</div>
 
     {% endfor %}
 </div>
