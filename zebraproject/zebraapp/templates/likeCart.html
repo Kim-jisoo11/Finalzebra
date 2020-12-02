@@ -48,6 +48,7 @@
                     </td>
                     <td>
                         <input type="radio" id="product_{{ like.product.id }}" name="product" value="{{ like.product.id }}">
+                        {{like.product.likes}}
                     </td>
                 </tr>
                 {% endfor %}

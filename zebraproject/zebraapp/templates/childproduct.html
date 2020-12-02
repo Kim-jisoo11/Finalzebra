@@ -53,17 +53,20 @@
                         <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
                             <a href="{% url 'productlike' childproduct.id %}" class=""><i
                                     class="material-icons black">favorite</i></a>
+                            <p> {{ childproduct.likes }} </p>
                         </button>
                         {% else %}
                         <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
                             <a href="{% url 'productlike' childproduct.id %}" class=""><i
                                     class="material-icons red">favorite</i></a>
+                                    <p>{{ childproduct.likes }}</p>
                         </button>
                         {% endif %}
                         {% else %}
                         <button class="button_mybtn" onClick="alertConfirm();location.href='login';">
                             <a href="{% url 'productlike' childproduct.id %}" class=""><i
                                     class="material-icons black">favorite</i></a>
+                                    <p>{{ childproduct.likes }}</p>
                         </button>
                         <!-- type="submit"  -->
                         {% endif %}

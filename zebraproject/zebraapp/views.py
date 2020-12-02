@@ -89,33 +89,22 @@ def tip_detail(request, tip_id):
 def like(request, product_id):
     user = request.user
     product = ChildProduct.objects.get(id=product_id)
-    current_likes = product.likes
+    # current_likes = product.likes
 
     liked = Likes.objects.filter(user=user, product=product).count()
 
     if not liked:
         like = Likes.objects.create(user=user, product=product)
-        current_likes =  1
+        product.likes =  1
     
     else:
         Likes.objects.filter(user=user, product=product).delete()
-        current_likes = 0
+        product.likes = 0
 
-    product.likes = current_likes
+    # product.likes = current_likes
     product.save()
 
     print(product_id, " ", product.name, " ", product.product.id)
-
-    # if request.method == 'POST':
-    #     if 'add_cart' in request.POST:
-    #         for i in cart :
-    #             if i.products == product:
-    #                 product = Product.objects.filter(pk=product_id)
-    #                 Cart.objects.filter(user=request.user, products__in=product).update(quantity=F('quantity') + quantity)
-    #                 return redirect('shopping', category.pk)
-    #         Cart.objects.create(user=user, products=product, quantity=quantity, category=category)
-    #         return redirect('shopping', category.pk)
-
     return HttpResponseRedirect(reverse('childproduct', args=[product.product.id]))
 
 # 찜
@@ -140,18 +129,17 @@ def delete_like(request, product_id):
         try:
             pk = request.POST.get('product')
             product = ChildProduct.objects.get(pk=pk)
-            print(product)
-            print(pk)
+            print(product.likes)
+            product.likes = 0
+            print(product.name)
+            print(product.likes)
             for i in likes:
                 if i.product == product :
-                    quantity =  i.quantity
-                    print(quantity)
                     quantity = quantity + 1
+                    print(quantity)
             if quantity > 0 :
                 product = ChildProduct.objects.filter(pk=pk)
-                print(product_id)
                 likes = Likes.objects.filter(user=request.user, product_id=pk)
-                print(likes)
                 likes.delete()
                 return redirect('likeCart')
         except:
