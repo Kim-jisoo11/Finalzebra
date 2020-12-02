@@ -10,6 +10,8 @@ from django.db.models import F
 import json
 from django.http import JsonResponse
 import operator
+from django.core.exceptions import ObjectDoesNotExist
+
 # Create your views here.
 def main(request):
     userCount = User.objects.all().count()
@@ -31,9 +33,20 @@ def show_product(request, category_id):
 
 def show_childproduct(request, product_id):
     product = get_object_or_404(Product, pk = product_id)
-    childproduct = ChildProduct.objects.all()
+    childproducts = ChildProduct.objects.filter(product=product_id)
+    likes = Likes.objects.filter(user=request.user)
+    likeCnt = Likes.objects.filter(user=request.user).count()
+    i = 0
 
-    return render(request,'childproduct.html' , {'product':product, 'childproduct':childproduct})
+    for like in likes:
+        for child in childproducts:
+            if child.id == like.product.id:
+                print(child.name, "찾았다")
+                child.likes = 1
+                print(child.likes)
+
+
+    return render(request,'childproduct.html' , {'product':product, 'childproducts':childproducts, 'likes' : likes, 'likeCnt' : likeCnt})
 
 def show_myPage(request):
     myItems_myLevel = MyItem.objects.all()
@@ -86,26 +99,34 @@ def tip_detail(request, tip_id):
 
 # 좋아요 누르기
 @login_required
-def like(request, product_id):
+def like(request, childproduct_id):
     user = request.user
-    product = ChildProduct.objects.get(id=product_id)
-    # current_likes = product.likes
+    childproduct = ChildProduct.objects.get(id=childproduct_id)
+    product = get_object_or_404(Product, pk = childproduct.product.id)
+    likes = Likes.objects.filter(user=user)
+    flag = 0 # flag = 1 이면 like에 이미 있다는 뜻. like에서 빼기
 
-    liked = Likes.objects.filter(user=user, product=product).count()
-
-    if not liked:
-        like = Likes.objects.create(user=user, product=product)
-        product.likes =  1
+    for like in likes:
+        if childproduct.id == like.product.id:
+            flag = 1
+            break
     
-    else:
-        Likes.objects.filter(user=user, product=product).delete()
-        product.likes = 0
+    print(flag, "플래그")
+    if flag == 1: #삭제
+        Likes.objects.filter(user=user, product=childproduct).delete()
+        print(childproduct.name, " 삭제 되었음")
+        
+    else: #추가
+        like = Likes.objects.create(user=user, product=childproduct)
+        print(childproduct.name, " 추가 되었음")
 
-    # product.likes = current_likes
-    product.save()
+    likeCnt = Likes.objects.filter(user=user).count()
+    print(likeCnt)
 
-    print(product_id, " ", product.name, " ", product.product.id)
-    return HttpResponseRedirect(reverse('childproduct', args=[product.product.id]))
+    childproduct.save()
+
+    return HttpResponseRedirect(reverse('childproduct', args=[product.id]))
+    
 
 # 찜
 @login_required
@@ -120,25 +141,24 @@ def likeCart(request):
 
 # 찜 삭제
 @login_required
-def delete_like(request, product_id):
+def delete_like(request, childproduct_id):
     user = request.user
     likes = Likes.objects.filter(user=request.user)
+    likeCnt = Likes.objects.filter(user=user).count()
     quantity = 0
+    print(likeCnt)
     
     if request.method == 'POST':
         try:
             pk = request.POST.get('product')
-            product = ChildProduct.objects.get(pk=pk)
-            print(product.likes)
-            product.likes = 0
-            print(product.name)
-            print(product.likes)
+            childproduct = ChildProduct.objects.get(pk=pk)
+            # childproduct.likes = 0
             for i in likes:
-                if i.product == product :
+                if i.product == childproduct :
                     quantity = quantity + 1
                     print(quantity)
             if quantity > 0 :
-                product = ChildProduct.objects.filter(pk=pk)
+                # childproduct = ChildProduct.objects.filter(pk=pk)
                 likes = Likes.objects.filter(user=request.user, product_id=pk)
                 likes.delete()
                 return redirect('likeCart')
