@@ -1,54 +1,59 @@
 /* detail_Item_myPage.html */
 .detail_wrapper {
-    padding-top: 8rem;
-    padding-left: 3rem;
-    width: 70vw;
+  padding-top: 8rem;
+  padding-left: 3rem;
+  width: 70vw;
 }
 
 #detail_delete_button.button:hover {
-  border-color: #da3910;
-  color: #da3910 !important;
+  border-radius: 12px;
+  
 }
 
 #detail_update_button.button:hover {
-  border-color: #106eda;
-  color: #106eda !important;
+  border-radius: 12px;
+  
 }
 
 
 button {
-    border-style: none;
-    background-color: transparent;
+  border-style: none;
+  background-color: transparent;
 }
 
 .button {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    -moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -ms-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    display: inline-block;
-    height: 2.75em;
-    line-height: 2.75em;
-    padding: 0 1.5em;
-    position: relative;
-    margin-top: 2rem;
-    /* margin-right: 3rem; */
-    background-color: transparent;
-    border-radius: 4px;
-    /* border: solid 1px #c8cccf; */
-    border: solid 2px  rgb(204, 185, 157);
-    color: #414f57 !important;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: inline-block;
+  height: 2.75em;
+  line-height: 2.75em;
+  padding: 0 1.5em;
+  position: relative;
+  margin-top: 2rem;
+  /* margin-right: 3rem; */
+  background-color: transparent;
+  border-radius: 12px;
+  /* border: solid 1px #c8cccf; */
+  border: solid 1px rgb(204, 185, 157);
+  color: #414f57 !important;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .button:hover {
-    border-color: #00a357;
-    color: #00a357 !important;
+  background-color: rgb(204, 185, 157);
+  text-align: center;
+  border-radius: 12px;
+}
+
+.footer {
+  display: none;
 }
