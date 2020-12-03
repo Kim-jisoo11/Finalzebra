@@ -45,6 +45,7 @@ def show_childproduct(request, product_id):
 
     return render(request,'childproduct.html' , {'product':product, 'childproducts':childproducts, 'likes' : likes, 'likeCnt' : likeCnt})
 
+@login_required
 def show_myPage(request):
     myItems_myLevel = MyItem.objects.all()
     count = myItems_myLevel.count()

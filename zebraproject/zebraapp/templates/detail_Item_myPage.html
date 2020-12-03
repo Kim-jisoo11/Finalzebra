@@ -7,7 +7,8 @@
 
 {% block content %}
 
-<div class="detail_wrapper">
+<div id="wrapper_myItem_detail">
+    <section id="detail_wrapper">
     <h2>{{myItems_detail.itemName}}</h2>
     <br>
     구매처 : {{myItems_detail.itemShop}}
@@ -17,6 +18,8 @@
     <br>
     <a href="{% url 'update_myItem' myItems_detail.id %}" class="button" id="detail_update_button"><button type="submit" class="btn btn-primary">수정</button></a>
     <a href="{% url 'delete_myItem' myItems_detail.id %}" class="button" id="detail_delete_button"><button type="submit" class="btn btn-primary">삭제</button></a>
+    </section>
 </div>
+
 
 {% endblock content %}

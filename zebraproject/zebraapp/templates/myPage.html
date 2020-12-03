@@ -7,46 +7,47 @@
 {% block content %}
 
 <div class="mypage_all">
+    
+    <!-- MyLevel -->
+    <div id="wrapper_mylevel">
+        <section id="main">
+            <section id="header">
+                <p>자연을 위해 한 노력</p>
+                <h2>My Level</h2>
+                <span class="avatar">
 
-  <!-- MyLevel -->
-  <div id="wrapper_mylevel">
-    <section id="main">
-      <section id="header">
-        <p>자연을 위해 한 노력</p>
-        <h2>My Level</h2>
-        <span class="avatar">
+                    {% if count == 0 %}
+                      <img src="{% static 'img/shovel.png' %}">    
+                      <br>
+                      <p class="first-ment">당신의 화분에 씨앗을 심어보세요</p>
+                    {% elif count > 10 %}
+                        <img src="{% static 'img/trees.png' %}">
+                    {% elif count > 5 %} 
+                        <img src="{% static 'img/gardening.png' %}">
+                    {% else %}
+                        <img src="{% static 'img/seed.png' %}">
+                        
+                    {% endif %}
+                   
+                </span>
+                <h1>Level {{count}}</h1>
+            </section>
+        </section>
+        
 
-          {% if count == 0 %}
-          <img src="{% static 'img/shovel.png' %}">
-          <br>
-          <p class="first-ment">당신의 화분에 씨앗을 심어보세요</p>
-          {% elif count > 10 %}
-          <img src="{% static 'img/trees.png' %}">
-          {% elif count > 5 %}
-          <img src="{% static 'img/gardening.png' %}">
-          {% else %}
-          <img src="{% static 'img/seed.png' %}">
-
-          {% endif %}
-
-        </span>
-        <h1>Level {{count}}</h1>
-      </section>
-    </section>
-
-
-    <ul class="icons">
-      <button onClick="popup_submit();location.href=''"><a href="#" class="button">내가 산 제품 등록하기</a></button>
-    </ul>
-    <br>
-    <br>
-  </div>
-
+        <ul class="icons">
+            <button onClick="popup_submit();location.href=''"><a href="#" class="button">내가 산 제품 등록하기</a></button>
+        </ul>
+        <br>
+        <br>
+    </div>
+    
   <!-- 타임라인 -->
   <section class="section intro">
     <div class="container">
       <h2>My Items</h2>
-    </div>
+      <br>
+      <p class="timeline-description">등록한 상품 수정/삭제 방법 : 그래프의 박스를 클릭해주세요</p>    </div>
   </section>
 
   <section class="timeline">
