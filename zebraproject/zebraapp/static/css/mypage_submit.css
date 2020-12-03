@@ -1,0 +1,90 @@
+/* sub_Item_myPage.html */
+
+
+button {
+    border-style: none;
+    background-color: transparent;
+}
+
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: inline-block;
+    height: 2.75em;
+    line-height: 2.75em;
+    padding: 0 1.5em;
+    position: relative;
+    margin-top: 2rem;
+    /* margin-right: 3rem; */
+    background-color: transparent;
+    border-radius: 4px;
+    /* border: solid 1px #c8cccf; */
+    border: solid 2px  rgb(204, 185, 157);
+    color: #414f57 !important;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button:hover {
+    border-color: #00a357;
+    color: #00a357 !important;
+}
+
+#submit_button.button {
+    padding: 0 0;
+    width: 5rem;
+    height: 3rem;
+    margin: auto;
+    margin-top: 2em;
+    margin-right: 1rem;
+}
+
+#close_submit_button.button {
+    padding: 0 0;
+    height: 3rem;
+    width: 5rem;
+    margin: auto;
+    margin-top: 2em;
+    margin-left: 1rem;
+}
+
+#submit_form {
+    padding-top: 3rem;
+    min-width: 420px;
+    padding-bottom: 5rem;
+}
+
+
+.submit_wrapper h1 {
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    padding-left: 70px;
+    padding-right: 70px;
+
+}
+
+.form_wrapper {
+    width: 35rem;
+    margin-left: 30%;
+    margin-right: 10%;
+    padding-right: 10em;
+}
+
+#input_item {
+    background-color: #e4e4e4;
+    opacity: 50%;
+    border-style: none;
+    border-radius: 4px;
+    height: 2rem;
+}
+
+
