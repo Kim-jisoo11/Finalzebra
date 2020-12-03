@@ -26,7 +26,7 @@ SECRET_KEY = 'pc*q&5u@i=d)vv_t8i(ugn+cqynolq*ip_1l(l3@yhu7on*7*8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zebra2020-env.eba-gedymicy.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['finalzebra-env.eba-3hgps8u3.us-west-2.elasticbeanstalk.com/']
 
 
 # Application definition
