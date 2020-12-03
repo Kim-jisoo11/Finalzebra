@@ -58,12 +58,15 @@ def submit_myItem_in_myPage(request):
     return render(request, 'sub_Item_myPage.html')
 
 def create_myItem_in_myPage(request):
-    myItems = MyItem()
-    myItems.itemName = request.GET['itemName']
-    myItems.itemShop = request.GET['itemShop']
-    myItems.itemDate = request.GET['itemDate']
-    myItems.save()
-    return redirect('submit_myItem_pop')
+    try:
+        myItems = MyItem()
+        myItems.itemName = request.GET['itemName']
+        myItems.itemShop = request.GET['itemShop']
+        myItems.itemDate = request.GET['itemDate']
+        myItems.save()
+        return redirect('submit_myItem_pop')
+    except:
+        return redirect('submit_myItem_pop')
 
 def detail_myItem_in_myPage(request, my_Items_id):
     myItems_detail = get_object_or_404(MyItem, pk=my_Items_id)
