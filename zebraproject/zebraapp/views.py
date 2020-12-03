@@ -23,7 +23,6 @@ def show_product(request, category_id):
     categories = Category.objects.all()
     category = Category.objects.get(pk=category_id)
     products = Product.objects.filter(category=category).order_by('pub_date')
-    # childproducts = ChildProduct.objects.get(pk = product_id)
     paginator = Paginator(products, 12)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
@@ -34,24 +33,21 @@ def show_product(request, category_id):
 def show_childproduct(request, product_id):
     product = get_object_or_404(Product, pk = product_id)
     childproducts = ChildProduct.objects.filter(product=product_id)
-    likes = Likes.objects.filter(user=request.user)
-    likeCnt = Likes.objects.filter(user=request.user).count()
-    i = 0
-
-    for like in likes:
-        for child in childproducts:
-            if child.id == like.product.id:
-                print(child.name, "찾았다")
-                child.likes = 1
-                print(child.likes)
-
+    likes = {}
+    likeCnt = 0
+    if request.user.is_authenticated:
+        likes = Likes.objects.filter(user=request.user)
+        likeCnt = Likes.objects.filter(user=request.user).count()
+        for like in likes:
+            for child in childproducts:
+                if child.id == like.product.id:
+                    child.likes = 1
 
     return render(request,'childproduct.html' , {'product':product, 'childproducts':childproducts, 'likes' : likes, 'likeCnt' : likeCnt})
 
 def show_myPage(request):
     myItems_myLevel = MyItem.objects.all()
     count = myItems_myLevel.count()
-    print(type(count))
     return render(request,'myPage.html', {'myItems_myLevel':myItems_myLevel, 'count':count})
 
 def submit_myItem_in_myPage(request):
@@ -117,14 +113,11 @@ def like(request, childproduct_id):
     print(flag, "플래그")
     if flag == 1: #삭제
         Likes.objects.filter(user=user, product=childproduct).delete()
-        print(childproduct.name, " 삭제 되었음")
         
     else: #추가
         like = Likes.objects.create(user=user, product=childproduct)
-        print(childproduct.name, " 추가 되었음")
 
     likeCnt = Likes.objects.filter(user=user).count()
-    print(likeCnt)
 
     childproduct.save()
 
@@ -149,19 +142,16 @@ def delete_like(request, childproduct_id):
     likes = Likes.objects.filter(user=request.user)
     likeCnt = Likes.objects.filter(user=user).count()
     quantity = 0
-    print(likeCnt)
     
     if request.method == 'POST':
         try:
             pk = request.POST.get('product')
             childproduct = ChildProduct.objects.get(pk=pk)
-            # childproduct.likes = 0
             for i in likes:
                 if i.product == childproduct :
                     quantity = quantity + 1
                     print(quantity)
             if quantity > 0 :
-                # childproduct = ChildProduct.objects.filter(pk=pk)
                 likes = Likes.objects.filter(user=request.user, product_id=pk)
                 likes.delete()
                 return redirect('likeCart')

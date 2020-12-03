@@ -50,23 +50,20 @@
                     <td>
                         {% if user.is_authenticated %}
                             {% if likeCnt == 0 %}
-                                <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
+                                <button class="button_mybtn">
                                     <a href="{% url 'productlike' childproduct.id %}" class=""><i
                                             class="material-icons black">favorite</i></a>
-                                    <p> 아무것도 없어 0 </p>
                                 </button>
                             {% else %}
                                 {% if childproduct.likes == 0 %}
-                                    <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
+                                    <button class="button_mybtn">
                                         <a href="{% url 'productlike' childproduct.id %}" class=""><i
                                                 class="material-icons black">favorite</i></a>
-                                        <p>  0 </p>
                                     </button>
                                 {% elif childproduct.likes == 1 %}
-                                    <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
+                                    <button class="button_mybtn">
                                         <a href="{% url 'productlike' childproduct.id %}" class=""><i
                                                 class="material-icons red">favorite</i></a>
-                                        <p> 1 </p>
                                     </button>
                                 {% endif %}
                             {% endif %}
@@ -74,7 +71,6 @@
                             <button class="button_mybtn" onClick="alertConfirm();location.href='login';">
                                 <a href="{% url 'productlike' childproduct.id %}" class=""><i
                                         class="material-icons black">favorite</i></a>
-                                <p> 로그인 0 </p>
                             </button>
                         {% endif %}
                         </td>
@@ -90,10 +86,6 @@
         var alertToVisiter = alert('로그인하세요');
         event.preventDefault();
 
-    }
-    function liked() {
-        var heart = document.getElementsByClassName(".material-icons black");
-        
     }
 </script>
 {% endblock content %}
