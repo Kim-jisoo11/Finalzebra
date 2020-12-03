@@ -47,7 +47,9 @@
                         {{like.product.ship}}원
                     </td>
                     <td>
-                        <input type="radio" id="product_{{ like.product.id }}" name="product" value="{{ like.product.id }}">
+                        <input type="radio" id="{{ like.product.id }}" name="product" value="{{ like.product.id }}">
+                        {{like.product.likes}}
+                        {{like.product.id}}
                     </td>
                 </tr>
                 {% endfor %}
@@ -58,7 +60,7 @@
         <br>
 
         {% if like.quantity == 0 %}
-        <button class="button_base mybtn" type="submit" onClick="alertConfirm()"> 선택내역 삭제 </button>
+        <button class="button_base mybtn" type="submit" name="delete_like" value="delete_like" onClick="alertConfirm()"> 선택내역 삭제 </button>
         {%else%}
         <button class="button_base mybtn" type="submit" name="delete_like" value="delete_like" onClick="alertDelete()">
             선택내역 삭제 </button>

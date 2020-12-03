@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product , ChildProduct, MyItem, Tip, TipBody
+from .models import Category, Product , ChildProduct, MyItem, Tip, TipBody, Likes
 
 class TipBodyInline(admin.TabularInline):
     model = TipBody
@@ -19,3 +19,4 @@ admin.site.register(Category)
 admin.site.register(MyItem)
 admin.site.register(Tip, TipAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Likes)

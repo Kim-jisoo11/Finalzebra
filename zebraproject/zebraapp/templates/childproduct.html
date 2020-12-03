@@ -10,7 +10,7 @@
         <img src="{{ product.image.url }}" class="productImg" width="30%" height="30%">
         <h3> {{ product.name }} </h3>
         {% autoescape off %}
-        <p class = "word-break"> {{ product.detail|linebreaksbr }} </p>
+        <p class="word-break"> {{ product.detail|linebreaksbr }} </p>
         {% endautoescape %}
     </div>
 
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
 
-                {% for childproduct in product.childproduct_set.all %}
+                {% for childproduct in childproducts %}
                 <tr>
                     <td>
                         {{childproduct.shopName}}
@@ -49,27 +49,37 @@
                     </td>
                     <td>
                         {% if user.is_authenticated %}
-                        {% if childproduct.likes == 0 %}
-                        <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
-                            <a href="{% url 'productlike' childproduct.id %}" class=""><i
-                                    class="material-icons black">favorite</i></a>
-                        </button>
+                            {% if likeCnt == 0 %}
+                                <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
+                                    <a href="{% url 'productlike' childproduct.id %}" class=""><i
+                                            class="material-icons black">favorite</i></a>
+                                    <p> 아무것도 없어 0 </p>
+                                </button>
+                            {% else %}
+                                {% if childproduct.likes == 0 %}
+                                    <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
+                                        <a href="{% url 'productlike' childproduct.id %}" class=""><i
+                                                class="material-icons black">favorite</i></a>
+                                        <p>  0 </p>
+                                    </button>
+                                {% elif childproduct.likes == 1 %}
+                                    <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
+                                        <a href="{% url 'productlike' childproduct.id %}" class=""><i
+                                                class="material-icons red">favorite</i></a>
+                                        <p> 1 </p>
+                                    </button>
+                                {% endif %}
+                            {% endif %}
                         {% else %}
-                        <button class="button_mybtn" name="add_cart" value="add_cart" onClick="alertOK()">
-                            <a href="{% url 'productlike' childproduct.id %}" class=""><i
-                                    class="material-icons red">favorite</i></a>
-                        </button>
+                            <button class="button_mybtn" onClick="alertConfirm();location.href='login';">
+                                <a href="{% url 'productlike' childproduct.id %}" class=""><i
+                                        class="material-icons black">favorite</i></a>
+                                <p> 로그인 0 </p>
+                            </button>
                         {% endif %}
-                        {% else %}
-                        <button class="button_mybtn" onClick="alertConfirm();location.href='login';">
-                            <a href="{% url 'productlike' childproduct.id %}" class=""><i
-                                    class="material-icons black">favorite</i></a>
-                        </button>
-                        <!-- type="submit"  -->
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
+                        </td>
+                    </tr>
+                    {% endfor %}
 
             </tbody>
         </table>
@@ -80,6 +90,10 @@
         var alertToVisiter = alert('로그인하세요');
         event.preventDefault();
 
+    }
+    function liked() {
+        var heart = document.getElementsByClassName(".material-icons black");
+        
     }
 </script>
 {% endblock content %}
