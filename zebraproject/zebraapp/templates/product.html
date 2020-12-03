@@ -12,7 +12,7 @@
         {% for categories in categories %}
         {% if category == categories %}
         <li class="category_list"><a href="{% url 'product' categories.id %}"
-                style="background-color:darkgrey; color:white; border-radius:30px;">{{categories}}</a>
+                style="background-color:rgb(151, 128, 116); color:white; border-radius:40px;">{{categories}}</a>
         </li>
         {% else %}
         <li class="category_list"><a href="{% url 'product' categories.id %}">{{categories}}</a></li>
