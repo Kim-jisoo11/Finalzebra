@@ -1,5 +1,8 @@
 /* sub_Item_myPage.html */
-
+.nav,
+.footer{
+    display: none;
+}
 
 button {
     border-style: none;
