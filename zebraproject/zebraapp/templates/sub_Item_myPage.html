@@ -7,38 +7,38 @@
 
 {% block content %}
 
-<div class="submit_wrapper">
-
-
-    <h1>내가 산 제품 등록</h1>
-
-    <form action="{% url 'create_myItem' %}" id="submit_form">
-        <div class="form_wrapper">
-            <div class="form_single_wrapper">
-                <label for="input_itemName" id="txt_input_itemName">제품명</label>
-                <input type="text" name="itemName" class="form-control" id="input_item">
+<div id="submit_wrapper">
+    <section id="submit_form_wrapper">
+        <h1>내가 산 제품 등록</h1>
+        <form action="{% url 'create_myItem' %}" id="submit_form">
+            <div class="form_wrapper">
+                <div class="form_single_wrapper">
+                    <label for="input_itemName" id="txt_input_itemName">제품명</label>
+                    <input type="text" name="itemName" class="form-control" id="input_item">
+                </div>
+                <br>
+                
+                <div class="form_single_wrapper">
+                    <label for="input_itemShop" id="txt_input_itemShop">구매처</label>
+                    <input type="text" name="itemShop" class="form-control" id="input_item">
+                </div>
+                <br>
+    
+                <div class="form_single_wrapper">
+                    <label for="input_itemDate" id="txt_input_itemDate">구매일</label>
+                    <input type="date" name="itemDate" class="form-control" id="input_item" placeholder="YYYY.MM.DD">
+                </div>
+                <br>
+    
+    
+                <a class="button" id="submit_button"><button type="submit" class="btn btn-primary" onClick="redirect_mypage()">등록하기</button></a>
+                <a class="button" id="close_submit_button"><button type="submit" class="btn btn-primary" onClick="close_popup()">닫기</button></a>
+    
+    
             </div>
-            <br>
-            
-            <div class="form_single_wrapper">
-                <label for="input_itemShop" id="txt_input_itemShop">구매처</label>
-                <input type="text" name="itemShop" class="form-control" id="input_item">
-            </div>
-            <br>
-
-            <div class="form_single_wrapper">
-                <label for="input_itemDate" id="txt_input_itemDate">구매일</label>
-                <input type="date" name="itemDate" class="form-control" id="input_item" placeholder="YYYY.MM.DD">
-            </div>
-            <br>
-
-
-            <a class="button" id="submit_button"><button type="submit" class="btn btn-primary" onClick="redirect_mypage()">등록하기</button></a>
-            <a class="button" id="close_submit_button"><button type="submit" class="btn btn-primary" onClick="close_popup()">닫기</button></a>
-
-
-        </div>
-    </form>
+        </form>
+    </section>
+    
 </div>
 
 <!-- '완료'버튼 누르면 팝업창 닫히는 기능 -->

@@ -1,5 +1,65 @@
 /* sub_Item_myPage.html */
 
+.section {
+    padding: 5px 0;
+  }
+  
+  .section .container {
+    width: 50%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+#submit_wrapper {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -moz-perspective: 1000px;
+    -webkit-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+    position: relative;
+    min-height: 100%;
+    padding: 1.5em;
+    z-index: 2;
+}
+#submit_form_wrapper {
+    -moz-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -moz-transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -moz-transition: opacity 1s ease, -moz-transform 1s ease;
+    -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
+    -ms-transition: opacity 1s ease, -ms-transform 1s ease;
+    transition: opacity 1s ease, transform 1s ease;
+    padding: 2.5em 2em 2em 2em ;
+    background: #ffffff;
+    border-radius: 12px;
+    cursor: default;
+    max-width: 100%;
+    opacity: 0.95;
+    position: relative;
+    text-align: center;
+    width: 27em;
+}
 
 button {
     border-style: none;
@@ -63,21 +123,6 @@ button {
 }
 
 
-.submit_wrapper h1 {
-    margin: auto;
-    text-align: center;
-    padding-top: 100px;
-    padding-left: 70px;
-    padding-right: 70px;
-
-}
-
-.form_wrapper {
-    width: 35rem;
-    margin-left: 30%;
-    margin-right: 10%;
-    padding-right: 10em;
-}
 
 #input_item {
     background-color: #e4e4e4;

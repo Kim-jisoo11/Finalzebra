@@ -214,6 +214,10 @@ button {
 
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline-description {
+  font-size: 2px;
+  color: #5e5e5e;
+}
 
 .timeline {
   white-space: nowrap;
