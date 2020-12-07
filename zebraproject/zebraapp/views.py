@@ -10,7 +10,7 @@ from django.db.models import F
 import json
 from django.http import JsonResponse
 import operator
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, PermissionDenied
 
 # Create your views here.
 def main(request):
@@ -84,10 +84,14 @@ def update_myItem_in_myPage(request, my_Items_id):
         return redirect('detail_myItem', my_Items_id)
     return render(request, 'update_Item_myPage.html', {'myItems_update':myItems_update})
 
+@login_required
 def delete_myItem_in_myPage(request, my_Items_id):
     myItems = get_object_or_404(MyItem, pk=my_Items_id)
-    myItems.delete()
-    return redirect('mypage')
+    if request.user == MyItem.user:
+        myItems.delete()
+        return redirect('mypage')
+
+    raise PermissionDenied
 
 
 def tip(request):
