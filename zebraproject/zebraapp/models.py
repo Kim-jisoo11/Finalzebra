@@ -34,9 +34,10 @@ class ChildProduct(models.Model):
         return '{}'.format(self.name)
 
 class MyItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_myitem')
     itemName = models.CharField(max_length=200)
     itemShop = models.CharField(max_length=200)
-    itemDate = models.DateTimeField('date published')
+    itemDate = models.DateField('date published')
     
     class Meta:
         ordering = ['-itemDate']

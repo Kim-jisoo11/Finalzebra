@@ -47,7 +47,8 @@ def show_childproduct(request, product_id):
 
 @login_required
 def show_myPage(request):
-    myItems_myLevel = MyItem.objects.all()
+    user = request.user
+    myItems_myLevel = MyItem.objects.filter(user=user)
     count = myItems_myLevel.count()
     return render(request,'myPage.html', {'myItems_myLevel':myItems_myLevel, 'count':count})
 
