@@ -92,7 +92,7 @@ def update_myItem_in_myPage(request, my_Items_id):
 @login_required
 def delete_myItem_in_myPage(request, my_Items_id):
     myItems = get_object_or_404(MyItem, pk=my_Items_id)
-    if request.user == MyItem.user:
+    if request.user == myItems.user:
         myItems.delete()
         return redirect('mypage')
 
