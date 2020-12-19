@@ -3,6 +3,10 @@
     margin: 0 auto;
     width: 70%;
 }
+a:hover.logo{
+    text-decoration: none;
+}
+
 a {
     text-decoration: none;
     color: black;
