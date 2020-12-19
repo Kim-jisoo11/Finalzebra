@@ -10,7 +10,7 @@
 </p>  
    
 **"환경과 함께 하는 소비, 제로웨이스트와 함께 하세요"**  
-- 기능1 : 카테고리 별 상품 구매
+- 기능1 : 카테고리 별 상품 보기 (상품 클릭 시 쇼핑몰로 이동)
 - 기능2 : 마이페이지 구매 상품 등록 및 확인
 - 기능3 : 구매 횟수 별 레벨 증가
 
@@ -53,6 +53,10 @@
 
 <img width="1792" alt="shop" src="https://user-images.githubusercontent.com/63868433/102681106-1edb7a00-4202-11eb-9685-c0ffd1444c6d.png">
 <img width="1792" alt="shopdetail" src="https://user-images.githubusercontent.com/63868433/102681112-269b1e80-4202-11eb-96d4-3320672304b1.png">
+
+##### 쇼핑몰로 연결
+<img width="1680" alt="쇼핑몰 연결" src="https://user-images.githubusercontent.com/63863135/102681848-230a9600-4208-11eb-8fcd-e25eb26c2168.png">
+
 
 #### 2.4 찜 페이지
 
