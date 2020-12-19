@@ -5,6 +5,7 @@
   <a href="http://zerowaste.eba-mmidc4gz.us-west-2.elasticbeanstalk.com/">Website</a>
   ·
   <a href="https://www.notion.so/accda62436514d62943e2626ba149173">Notion</a>
+  <a href="https://youtu.be/K7i8e4_PNFk">Youtube</a>
 </p>  
    
 **"환경과 함께 하는 소비, 제로웨이스트와 함께 하세요"**  
