@@ -1,0 +1,33 @@
+.container {
+    margin: 0 auto;
+    padding: 10rem 0 10rem 0;
+    width: 60%;
+}
+
+.cover{
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
+
+.title{
+    font-family: 'S-CoreDream-5Medium';
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.date{
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.bodyimg{
+    width: 100%;
+    height: auto;
+    margin: 2rem 0 1rem 0;
+}
+
+.body{
+    line-height: 1.3rem;
+    text-align: justify;
+}

@@ -1,0 +1,63 @@
+.wrapper{
+    padding-top: 3rem;
+}
+.container {
+    padding-top: 7%;
+    margin: 0 auto;
+    width: 70%;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+li {
+    list-style: none;
+    align-content: center;
+}
+.headTxt {
+    margin-left: 50px;
+    height: fit-content;
+    font-size: 30px;
+}
+
+.childDetails {
+    clear: both;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+table {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    font-family: 'S-CoreDream-3Light';
+    border-collapse: separate;
+    border-spacing: 0;
+
+}
+
+tr th,
+tr td {
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+}
+
+tr th {
+    border-top: 1px solid lightgray;
+    text-align: center;
+}
+button {
+    background-color: white;
+    border: solid 1px rgb(204, 185, 157);
+    padding: 10px 15px 10px 15px;
+    margin-left: 45%;
+    border-radius: 12px;
+}
+button:hover {
+    background-color: rgb(204, 185, 157);
+    text-align: center;
+    border-radius: 12px;
+}

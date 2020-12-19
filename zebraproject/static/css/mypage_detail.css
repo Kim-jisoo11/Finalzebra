@@ -1,0 +1,116 @@
+/* detail_Item_myPage.html */
+
+#wrapper_myItem_detail {
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -moz-perspective: 1000px;
+  -webkit-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+  position: relative;
+  min-height: 100%;
+  padding: 1.5em;
+  z-index: 2;
+}
+
+.section {
+  padding: 5px 0;
+}
+
+.section .container {
+  width: 50%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#detail_wrapper {
+  -moz-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -moz-transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  -moz-transition: opacity 1s ease, -moz-transform 1s ease;
+  -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
+  -ms-transition: opacity 1s ease, -ms-transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
+  padding: 8em 2em 2em 2em ;
+  background: #ffffff;
+  border-radius: 12px;
+  cursor: default;
+  max-width: 100%;
+  opacity: 0.95;
+  position: relative;
+  text-align: center;
+  width: 27em;
+}
+
+#detail_delete_button.button:hover {
+  border-radius: 12px;
+  
+}
+
+#detail_update_button.button:hover {
+  border-radius: 12px;
+  
+}
+
+
+button {
+  border-style: none;
+  background-color: transparent;
+}
+
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: inline-block;
+  height: 2.75em;
+  line-height: 2.75em;
+  padding: 0 1.5em;
+  position: relative;
+  margin-top: 2rem;
+  /* margin-right: 3rem; */
+  background-color: transparent;
+  border-radius: 12px;
+  /* border: solid 1px #c8cccf; */
+  border: solid 1px rgb(204, 185, 157);
+  color: #414f57 !important;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background-color: rgb(204, 185, 157);
+  text-align: center;
+  border-radius: 12px;
+}
+
+.footer {
+  display: none;
+}

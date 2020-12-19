@@ -10,7 +10,7 @@ from django.db.models import F
 import json
 from django.http import JsonResponse
 import operator
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, PermissionDenied
 
 # Create your views here.
 def main(request):
@@ -47,7 +47,8 @@ def show_childproduct(request, product_id):
 
 @login_required
 def show_myPage(request):
-    myItems_myLevel = MyItem.objects.all()
+    user = request.user
+    myItems_myLevel = MyItem.objects.filter(user=user)
     count = myItems_myLevel.count()
     return render(request,'myPage.html', {'myItems_myLevel':myItems_myLevel, 'count':count})
 
@@ -57,6 +58,7 @@ def submit_myItem_in_myPage(request):
 def create_myItem_in_myPage(request):
     try:
         myItems = MyItem()
+        myItems.user = request.user
         myItems.itemName = request.GET['itemName']
         myItems.itemShop = request.GET['itemShop']
         myItems.itemDate = request.GET['itemDate']
@@ -67,26 +69,34 @@ def create_myItem_in_myPage(request):
 
 def detail_myItem_in_myPage(request, my_Items_id):
     myItems_detail = get_object_or_404(MyItem, pk=my_Items_id)
-    return render(request, 'detail_Item_myPage.html', {'myItems_detail':myItems_detail})
+    if request.user == myItems_detail.user:
+        return render(request, 'detail_Item_myPage.html', {'myItems_detail':myItems_detail})
+    raise PermissionDenied
 
 def update_myItem_in_myPage(request, my_Items_id):
     myItems_update = get_object_or_404(MyItem, pk=my_Items_id)
     
-    if request.method == "POST":
-        myItemName = request.POST.get('itemName')
-        myItemShop = request.POST.get('itemShop')
-        myItemDate = request.POST.get('itemDate')
-        myItems_update.itemName = myItemName
-        myItems_update.itemShop = myItemShop
-        myItems_update.itemDate = myItemDate
-        myItems_update.save()
-        return redirect('detail_myItem', my_Items_id)
-    return render(request, 'update_Item_myPage.html', {'myItems_update':myItems_update})
+    if request.user == myItems_update.user:
+        if request.method == "POST":
+            myItemName = request.POST.get('itemName')
+            myItemShop = request.POST.get('itemShop')
+            myItemDate = request.POST.get('itemDate')
+            myItems_update.itemName = myItemName
+            myItems_update.itemShop = myItemShop
+            myItems_update.itemDate = myItemDate
+            myItems_update.save()
+            return redirect('detail_myItem', my_Items_id)
+        return render(request, 'update_Item_myPage.html', {'myItems_update':myItems_update})
+    raise PermissionDenied
 
+@login_required
 def delete_myItem_in_myPage(request, my_Items_id):
     myItems = get_object_or_404(MyItem, pk=my_Items_id)
-    myItems.delete()
-    return redirect('mypage')
+    if request.user == myItems.user:
+        myItems.delete()
+        return redirect('mypage')
+
+    raise PermissionDenied
 
 
 def tip(request):
