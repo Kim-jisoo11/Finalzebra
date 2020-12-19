@@ -58,6 +58,9 @@
 
 #### 2.5 마이 페이지
 
+##### 상품 등록 전 마이 
+<img width="1680" alt="등록 전 페이지" src="https://user-images.githubusercontent.com/63863135/102680957-a58f5780-4200-11eb-91e2-03a99f1eb54d.png">
+
 ##### 상품 등록 팝업
 <img width="1584" alt="my등록 팝업" src="https://user-images.githubusercontent.com/63863135/102680956-a0320d00-4200-11eb-87e0-f9d85a0087b1.png">
 
