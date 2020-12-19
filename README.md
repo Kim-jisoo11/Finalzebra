@@ -1,4 +1,4 @@
-# Zero Waste
+# Zero Waste 🌿
 
 <p align="center">
   <a href="http://zerowaste.eba-mmidc4gz.us-west-2.elasticbeanstalk.com/">Website</a>
