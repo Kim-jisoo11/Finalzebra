@@ -19,10 +19,10 @@
 
 | 이름 | 담당 |
 | --- | --- |
-| 김지수([Kim-jisoo11](https://github.com/Kim-jisoo11)) | 백엔드&프론트엔드, UX/UI |
-| 김지우([jiuuucy](https://github.com/jiuuucy)) | 백엔드&프론트엔드, UX/UI |
-| 도수빈([svdoit](https://github.com/svdoit)) | 백엔드&프론트엔드 |
-| 이성민([icechocola05](https://github.com/icechocola05)) | 백엔드&프론트엔드 |
+| 김지수([Kim-jisoo11](https://github.com/Kim-jisoo11)) | Login, Shop |
+| 김지우([jiuuucy](https://github.com/jiuuucy)) | MainPage, Tip |
+| 도수빈([svdoit](https://github.com/svdoit)) | MyPage |
+| 이성민([icechocola05](https://github.com/icechocola05)) | Shop Detail, Like |
 
 ***
 
@@ -58,7 +58,7 @@
 
 #### 2.5 마이 페이지
 
-##### 상품 등록 전 마이 
+##### 상품 등록 전 마이 페이지
 <img width="1680" alt="등록 전 페이지" src="https://user-images.githubusercontent.com/63863135/102680957-a58f5780-4200-11eb-91e2-03a99f1eb54d.png">
 
 ##### 상품 등록 팝업
