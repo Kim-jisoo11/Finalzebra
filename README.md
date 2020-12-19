@@ -11,5 +11,5 @@
 | --- | --- |
 | 김지수([Kim-jisoo11](https://github.com/Kim-jisoo11)) | Login, Shop |
 | 김지우([jiuuucy](https://github.com/jiuuucy)) | MainPage, Tip |
-| 도수빈([svdoit](https://github.com/svdoit)) | MyPage |
+| 도수빈([svdoit](https://github.com/svdoit)) | MyPage, Like |
 | 이성민([icechocola05](https://github.com/icechocola05)) | Shop Detail, Like |
