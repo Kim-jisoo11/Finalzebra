@@ -1,7 +1,7 @@
 # Zero Waste
 
 <p align="center">
-  <a href="http://sungshin2dx2-env.eba-zstah2bh.us-west-2.elasticbeanstalk.com">Website</a>
+  <a href="http://zerowaste.eba-mmidc4gz.us-west-2.elasticbeanstalk.com/">Website</a>
 </p>  
 
 ### 팀원
